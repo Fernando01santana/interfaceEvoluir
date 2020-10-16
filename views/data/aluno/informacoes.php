@@ -135,7 +135,7 @@ try {
                   <div class="row">
                     <div class="col-6">
                       <label for="exampleInputEmail1">CEP</label>
-                      <input type="text" class="form-control" name="cep" id="cpf" placeholder="CEP" aria-describedby="emailHelp">
+                      <input type="text" class="form-control" name="cep" id="cep" placeholder="CEP" aria-describedby="emailHelp">
 
                     </div>
 
@@ -164,7 +164,7 @@ try {
                     </div>
                   </div>
 
-                  <button type="submit" class="btn btn-primary btn-block" id="updade-endereco">atualizar</button>
+                  <button type="button" class="btn btn-primary btn-block" id="update-endereco">atualizar</button>
                   <a href="../../../index.php"><button class="btn btn-danger btn-block">Voltar</button></a>
                 </form>
 
@@ -316,38 +316,44 @@ try {
 
             <div class="tab-pane fade" id="contato" role="tabpanel" aria-labelledby="contact-tab">
               <div class="form-date">
+              <div class="row">
+              <div class="col-12 estado3">
+              
+              </div>
+              </div>
+            
                 <form>
                   <div class="row">
                     <div class="col-6">
                       <label for="exampleInputEmail1">Email:</label>
-                      <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp">
+                      <input type="email" class="form-control" name="email" id="email" placeholder="Email" aria-describedby="emailHelp">
 
                     </div>
 
                     <div class="col-6">
                       <label for="exampleInputEmail1">telefone1</label>
-                      <input type="text" class="form-control" value="<?php echo $dados[0]['telefone1'] ?>" name="estado" id="exampleInputEmail1" placeholder="Estado" aria-describedby="emailHelp">
+                      <input type="text" class="form-control" value="<?php echo $dados[0]['telefone1'] ?>" name="estado" id="telefone1" placeholder="Telefone1" aria-describedby="emailHelp">
 
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">telefone2</label>
-                    <input type="text" class="form-control" name="estado" value="<?php echo $dados[0]['telefone2'] ?>" id="exampleInputEmail1" placeholder="Cidade" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" name="estado" value="<?php echo $dados[0]['telefone2'] ?>" id="telefone2" placeholder="Telefone2" aria-describedby="emailHelp">
                   </div>
                   
                   <div class="form-group">
                     <label for="">Rua</label>
-                    <input type="text" name="rua" placeholder="Rua" value="<?php echo $dados[0]['rua'] ?>" class="form-control" id="">
+                    <input type="text" name="rua" placeholder="Rua" value="<?php echo $dados[0]['rua'] ?>" class="form-control" id="rua">
                   </div>
 
                   <div class="row">
                     <div class="col">
                       <label for="">Senha:</label>
-                      <input type="password"  class="form-control">
+                      <input type="password" id="senha"  class="form-control">
                     </div>
                     <div class="col">
                       <label for="">Confirmar senha:</label>
-                      <input type="password"  class="form-control">
+                      <input type="password" id="senha-conf" class="form-control">
                     </div>
                   </div>
 
@@ -421,7 +427,7 @@ $('#updade-info').click(()=>{
           });
         }
 });
-$('#updade-endereco').click(()=>{
+$('#update-endereco').click(()=>{
   var cep = $('#cep').val();
   var estado = $('#estado').val();
   var cidade = $('#cidade').val();
@@ -430,8 +436,8 @@ $('#updade-endereco').click(()=>{
   var numero = $('#numero').val();
 
 
-  if((cep === undefined) || (estado === undefined) || (cidade === undefined) || (rua === undefined) || (bairro === undefined) || (numero === undefined)){
-    $('.estado').append('<div class="alert alert-info" role="alert">preencha todos os campos corretamente!!</div>');
+  if((cep === "") || (estado === "") || (cidade === "") || (rua === "") || (bairro === "") || (numero === "")){
+    $('.estado').append('<div class="alert alert-danger" role="alert">preencha todos os campos corretamente!!</div>');
     setTimeout(function(){
       $('.estado').fadeOut("slow");
     },3000);
@@ -439,7 +445,6 @@ $('#updade-endereco').click(()=>{
     $.ajax({
         method: 'POST',
         url: '../../../database/updates_aluno/endereco.php',
-        
         data:{
           cpf:cpf,
           cep:cep,
@@ -467,6 +472,55 @@ $('#updade-endereco').click(()=>{
   }
 
 })
+
+$('#update-contato').click(()=>{
+  var rua = $('#rua').val();
+  var telefone1 = $('#telefone1').val();
+  var telefone2 = $('#telefone2').val();
+  var email =  $('#email').val();
+  var senha = $('#senha').val();
+  var conf_senha = $('#senha-conf').val();
+
+  if((rua === "") || (telefone1 === "") || (telefone2 === "") || (email === "") || (senha === "") || (conf_senha === "")){
+    $('.estado').append('<div class="alert alert-danger" role="alert">preencha todos os campos corretamente!!</div>');
+    setTimeout(function(){
+      $('.estado').fadeOut("slow");
+    },3000);
+  }else{
+    if(senha === conf_senha){
+    $.ajax({
+        method: 'POST',
+        url: '../../../database/updates_aluno/contato.php',
+        data:{
+          rua:rua,
+          telefone1:telefone1,
+          telefone2:telefone2,
+          email:email,
+          senha:senha,
+          conf_senha:conf_senha,
+        },
+        dataType: 'html',
+            success: function(response) {
+                $('.estado3').append('<div class="alert alert-primary state3" role="alert">Informações atualizadas com sucesso!!</div>');
+                setTimeout(function(){
+                  $('.state3').fadeOut("slow");
+                },3000);
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+              $('.estdo3').append('<div class="alert alert-danger state3" role="alert">Erro ao atualizar seus dados!!</div>');
+              setTimeout(function(){
+                $('.state3').fadeOut("slow");
+              },3000);
+            }
+        
+          });
+  }else{
+    $('.estado3').append('<div class="alert alert-danger" role="alert">preencha todos os campos corretamente!!</div>');
+  }
+  }
+
+})
+
   $(document).ready(function(){
     $('.periodo').hide();
     $('#radio3').click(function(){
