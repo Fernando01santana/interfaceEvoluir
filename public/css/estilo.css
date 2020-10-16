@@ -1,0 +1,174 @@
+@font-face {
+    font-family: "KEEP";
+    src: url('../../views/cad/fonts/KeepCalm-Medium.ttf');
+ }
+
+body{
+    background: white;
+    color:KEEP;
+}
+h5 {
+    display: inline-block;
+    padding-left:1.3rem;
+    text-align: center;
+}
+.container-fluid{
+    padding-left: 0;
+}
+
+.esquerda{
+    font-family: "KEEP";
+    height:100vh;
+    width:100%;
+    background: #00b6ff;
+}
+
+.direita{
+    font-family: "KEEP";
+    height: 100vh;
+    width:100%;
+    background-image: white;
+    
+}
+.area{
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 0;
+}
+
+.navbar-brand{
+    padding-left: 20px;
+}
+.color-white{
+    color:white;
+}
+.color-white3{
+   color:white;
+}
+.color-blue{
+    color:#001b4f;
+}
+.apresentacao{
+    font-family: "KEEP";
+    margin-left:20%;
+    width:60%;
+    margin-top: 3rem;
+}
+.apresentacao2{
+    font-family: "KEEP";
+    margin-left:20%;
+    width:60%;
+   padding-top:7rem;
+}
+.color-white4{
+    display: none;
+}
+.btn-white{
+    font-family: "KEEP";
+    background: white;
+    color:#001b4f;
+    margin-left: 40.5%;
+    width:6rem;
+    height:2rem;
+    align-self: center;
+    border:none;
+    border-radius: 10px;
+    margin-top: 2rem;
+}
+
+.btn-white:hover{
+    background: #DCDCDC;
+}
+
+.img-esquerda{
+    margin-left: 32%;
+    width:50%;
+    margin-top:1rem;
+}
+
+.img-direito{
+    margin-left: 32%;
+    width:48%;
+    margin-top:4rem;
+}
+
+.logo{
+    width:30%;
+}
+.butons button{
+    margin-left: 4rem;
+    margin-top:1rem;
+    margin-bottom:2rem;
+    background: transparent;
+    border:none;
+    color:#001b4f;
+}
+
+.seguimento h5{
+    color:white;
+}
+.titulo{
+    font-family: "KEEP";
+    background:#001b4f;
+    width:50%;
+    border-radius:10px;
+}
+a{
+    text-decoration: none;
+    color: #001b4f;
+}
+a:hover{
+    color:#00b6ff;
+}
+.nav-link:hover{
+    background: white;
+    color:#001b4f;
+}
+@media (min-width: 350px) and (max-width: 700px)
+{
+ .img-direito{
+     width:90%;
+     margin-left: 10%;
+     margin-top:1rem;
+ }
+
+ .butons button{
+    width:4rem;
+    margin-left: 2.5rem;
+    margin-top:1rem;
+    background: transparent;
+    border:none;
+    color:#001b4f;
+    text-align: center;
+}
+.apresentacao2{
+    padding-top:2rem;
+}
+.titulo{
+    background: white;
+    width:100%;
+    border-radius: 0;
+    border-radius: 10px;
+}
+.seguimento h5{
+    color:#001b4f;
+    
+}
+.btn-white{
+    margin-left: 35%;
+}
+.color-white{
+    display: none;
+}
+.color-white4{
+    color: white;
+   display: flex;
+    width: 80%;
+    text-align: center;
+    font-size:18pt;
+    margin-left:3rem;
+    margin-top:1rem;
+}
+h5{
+    padding-left:0rem;
+}

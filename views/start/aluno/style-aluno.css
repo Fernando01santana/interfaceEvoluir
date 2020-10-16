@@ -1,0 +1,248 @@
+@font-face {
+    font-family: 'KEEP';
+    src: url('fonts/KeepCalm-Medium.ttf');
+ }
+.direita{
+    background: white;
+  }
+  .esquerda{
+    background: white;
+  }
+    .container-fluid{
+       width: 100% !important;
+       
+    }
+    .nav-link{
+      font-family: 'KEEP';
+    }
+ 
+    .bg-dark{
+        background-color:#001b4f !important;
+        padding-right: 0;
+        color:white;
+    }
+    .nav-item a{
+      color:white;
+      text-decoration: none;
+      padding-left: 1rem;
+    }
+    .pos-f-t{
+      width: 100%;
+      padding-right: 0;
+    }
+    .logo{
+      width:4rem;
+    }
+    .cabecalho{
+    font-family: "KEEP";
+    text-align: left;
+    padding-top: 6rem;
+    padding-left:2rem;
+    }
+.cabecalho h5{
+  font-size: 26px;
+  padding-left: 0;
+  padding-bottom:-2rem;
+}
+    .botoes{
+        
+        margin-top:2.2rem;
+        margin-left:0rem;
+    }
+
+    .btn{
+      width:10rem;
+    }
+
+    .btn-primary{
+       margin-left:2rem;
+       background: #00b6ff;
+    }
+    .btn-primary:hover{
+      background: #00b6ff;
+    }
+    .icone{
+      font-size:5rem;
+    }
+
+    .curriculo{
+      background:#001b4f;
+    }
+
+    .curriculo:hover{
+      background: #001b4f;
+    }
+
+    .icone-exit{
+      font-size:1.8rem;
+    }
+    .btn-danger{
+      margin-top:2rem;
+      background: white !important;
+      color:#001b4f;
+      border: none;
+    }
+    .btn-danger:hover{
+      background: white !important;
+      color:#001b4f;
+      border: none;
+    }
+
+    .botoes img{
+      width:20px !important;
+    }
+
+    .direita #art{
+      padding-top:10rem;
+      width:60%;
+    }
+
+.imgs #logo{
+  padding-top:1.9rem;
+  margin-left:40rem;
+  padding-bottom:16rem;
+  width:18%;
+}
+.imgs #arts{
+  margin-top:8rem;
+  width:80%;
+}
+@media (min-width: 350px) and (max-width: 700px)
+{
+  .cabecalho{
+    margin-top: 2.6rem;
+  }
+.direita #logo{
+    display: none;
+}
+h1{
+display: none;
+}
+h5{
+  font-size:8px;
+}
+.esquerda{
+  height: 100vh;
+}
+.botoes button{
+  margin-top:1rem;
+}
+.botoes{
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+.botoes p{
+  padding-top:0.5rem;
+  font-size: 18px;
+}
+.direita{
+  display: none;
+}
+} 
+
+@media (min-width: 300px) and (max-width: 350px)
+{
+
+  .cabecalho{
+    margin-top: 2.6rem;
+  }
+.direita #logo{
+    display: none;
+}
+h1{
+display: none;
+}
+h5{
+  font-size:8px;
+}
+.esquerda{
+  height: 100vh;
+}
+.botoes button{
+  margin-top:1rem;
+}
+.botoes{
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+.botoes p{
+  padding-top:0.5rem;
+  font-size: 18px;
+}
+.direita{
+  display: none;
+}
+
+}  
+
+@media (min-width: 200px) and (max-width: 340px)
+{
+
+  .cabecalho{
+    margin-top: 2.6rem;
+  }
+.direita #logo{
+    display: none;
+}
+h1{
+display: none;
+}
+h5{
+  font-size:8px;
+}
+.esquerda{
+  height: 100vh;
+}
+.botoes button{
+  margin-top:1rem;
+}
+.botoes{
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+.botoes p{
+  padding-top:0.5rem;
+  font-size: 18px;
+}
+.direita{
+  display: none;
+}
+
+}  
+
+@media (min-width: 701px) and (max-width: 999px)
+{
+
+  .cabecalho{
+    margin-top: 2.6rem;
+  }
+
+h1{
+display: none;
+}
+h5{
+  font-size:8px;
+}
+.esquerda{
+  height: 100vh;
+}
+.botoes button{
+  margin-top:1rem;
+}
+.botoes{
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+.botoes p{
+  padding-top:0.5rem;
+  font-size: 18px;
+}
+.direita #arts{
+  margin-top:20.5em;
+}
+
+}  

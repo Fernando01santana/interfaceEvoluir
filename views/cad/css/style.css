@@ -1,0 +1,82 @@
+body{
+    margin:0px;
+    padding:0px;
+}
+::-webkit-scrollbar{
+    width:8px;
+    background: white;
+}
+::-webkit-scrollbar-thumb{
+    border-radius:10px;
+    background: black;
+    padding-left:5px;
+}
+@font-face {
+    font-family: "KEEP";
+    src: url('../fonts/KeepCalm-Medium.ttf');
+ }
+
+.area{
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 0;
+}
+
+.direita{
+    font-family: "KEEP";
+    height: 100vh;
+    width:100%;
+}
+
+.direita img{
+    margin-top:2rem;
+    width:80%;
+}
+.container-fluid{
+    padding-left: 0;
+}
+
+.esquerda{
+    font-family: "KEEP";
+    height:100vh;
+    width:100%;
+    background: #001b4f;
+}
+
+.form{
+    position: relative;
+    overflow-y: scroll;
+    height:100%;
+    padding:2rem;
+}
+
+.form h1 ,h6{
+    color:white;
+    font-family: "KEEP";
+    text-align: center;
+}
+
+.form h6{
+    padding-top: 3rem;
+}
+
+.form label{
+    color:white;
+}
+
+.cima{
+    text-align: center;
+}
+.form button{
+    padding-top:1rem;
+}
+.voltar{
+    margin-top:1rem !important;
+}
+
+@media (min-width: 350px) and (max-width: 700px)
+{
+.direita{
+    display: none;
+}
+}    

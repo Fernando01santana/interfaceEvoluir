@@ -1,0 +1,100 @@
+@font-face {
+    font-family: "KEEP";
+    src: url('../../views/cad/fonts/KeepCalm-Medium.ttf');
+ }
+.container-fluid{
+    padding-left: 0;
+}
+
+.esquerda{
+    font-family: "KEEP";
+    height:100vh;
+    width:100%;
+    background: #00b6ff;
+   
+}
+
+.titulo{
+    color:white;
+    padding-top:4rem;
+}
+
+.direita{
+    font-family: "KEEP";
+    height: 100vh;
+    width:100%;
+    
+}
+.area{
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 0;
+}
+
+.campos{
+    margin-top:1rem;
+    margin-left:20%;
+    width:60%;
+}
+.campos p{
+color:white;
+margin-top:1rem;
+}
+.campos a{
+    text-decoration: none;
+    color:white;
+}
+.campos img{
+    margin-top:2.5rem;
+    margin-left:5.5rem;
+    width:50%;
+}
+.campos label{
+    color:white;
+}
+.input{
+    height:4rem !important;
+    border-radius: 20px;
+   margin-top:10%;
+}
+.btn-blackBlue{
+    margin-top:3rem;
+    text-align: center;
+    height:3.5rem;
+    color:white;
+    background:#001b4f;
+    border-radius:10px;
+}
+.btn-blackBlue:hover{
+    color:white;
+}
+.direita img{
+    width:100%;
+}
+.button{
+    text-align: center !important; 
+}
+.campos h4{
+    padding-top:0.5rem;
+ } 
+@media (min-width: 350px) and (max-width: 700px)
+{
+    .direita{
+        display: none;
+    }
+
+    .campos img{
+        margin-top:2.5rem;
+        margin-left:3rem;
+        width:50%;
+    }
+    .campos p{
+        font-size: 10pt;
+        color:white;
+        margin-top:1rem;
+        }
+
+    .campos h4{
+       padding-top:0.5rem;
+    }    
+}    

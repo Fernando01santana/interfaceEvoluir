@@ -1,0 +1,53 @@
+@font-face {
+    font-family: "KEEP";
+    src: url('../cad/fonts/KeepCalm-Medium.ttf');
+ }
+
+body{
+    font-family:KEEP;
+    background: #e4e4e4;
+}
+
+.container-fluid{
+    padding-left: 0;
+}
+
+.esquerda{
+    border-radius: 10px;
+    background:white;
+    
+    margin-top:4rem;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vagas{
+    border-radius:10px;
+    margin:0.5rem;
+    background:#001b4f;
+    width:70%;
+    margin-bottom: 2rem;
+}
+.area{
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 0;
+}
+.nav-link{
+    opacity:0.5;
+}
+.nav-link:hover{
+    opacity:1;
+    color:#001b4f;
+}
+.bg-dark{
+    background:#001b4f !important;
+}
+
+.titulo-vagas{
+    text-align: center;
+    width:100%;
+    margin-top:2rem;
+}
