@@ -1,6 +1,6 @@
 <?php
 include('../conection.php');
-var_dump($_POST);
+
 $cep = $_POST['cep'];
 $cidade = $_POST['cidade'];
 $estado = $_POST['estado'];
@@ -8,6 +8,8 @@ $rua = $_POST['rua'];
 $bairro = $_POST['bairro'];
 $numero = $_POST['numero'];
 $cpf = $_POST['cpf'];
+
+echo $cpf;
 try {
     $stmt = $pdo->prepare("UPDATE alunos SET id = :id, cep = :cep, cidade = :cidade, estado = :estado,rua = :rua, bairro = :bairro, numero = :numero WHERE cpf = :cpf");
     $stmt->bindValue(':id',null);
