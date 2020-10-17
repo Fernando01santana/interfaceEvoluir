@@ -31,7 +31,7 @@ if((!isset ($_SESSION['user']) == true) and (!isset ($_SESSION['pass']) == true)
                   <a href="../../curriculo/curriculo.php"><button class="btn btn-primary curriculo"><i class=" icone fas fa-edit"></i><br><p>Curriculo</p></button></a>
               </div>
               <div class="botoes">
-                  <button class="btn btn-primary curriculo"><i class=" icone fas fa-unlock-alt"></i><br><p>Senha</p></button>
+                  <a href="../../data/aluno/recovery-pass.php"><button class="btn btn-primary curriculo"><i class=" icone fas fa-unlock-alt"></i><br><p>Senha</p></button></a>
                   <a href="../../vagas/vagas.php"><button class="btn btn-primary "><i class="icone fas fa-search"></i><br><p>Vagas</p></button></a>
               </div>
               <div class="exit">

@@ -332,18 +332,18 @@ try {
 
                     <div class="col-6">
                       <label for="exampleInputEmail1">telefone1</label>
-                      <input type="text" class="form-control" value="<?php echo $dados[0]['telefone1'] ?>" name="estado" id="telefone1" placeholder="Telefone1" aria-describedby="emailHelp">
+                      <input type="text" class="form-control" value="<?php echo $dados[0]['telefone1'] ?>" name="estado" id="telefone1_c" placeholder="Telefone1" aria-describedby="emailHelp">
 
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">telefone2</label>
-                    <input type="text" class="form-control" name="estado" value="<?php echo $dados[0]['telefone2'] ?>" id="telefone2" placeholder="Telefone2" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" name="estado" value="<?php echo $dados[0]['telefone2'] ?>" id="telefone2_c" placeholder="Telefone2" aria-describedby="emailHelp">
                   </div>
                   
                   <div class="form-group">
                     <label for="">Rua</label>
-                    <input type="text" name="rua" placeholder="Rua" value="<?php echo $dados[0]['rua'] ?>" class="form-control" id="rua">
+                    <input type="text" name="rua" placeholder="Rua" value="<?php echo $dados[0]['rua'] ?>" class="form-control" id="rua_c">
                   </div>
 
                   <div class="row">
@@ -359,7 +359,7 @@ try {
 
                  
 
-                  <button type="submit" class="btn btn-primary btn-block">atualizar</button>
+                  <button type="button" class="btn btn-primary btn-block" id="update-contato">atualizar</button>
                   <a href="../../../index.php"><button class="btn btn-danger btn-block">Voltar</button></a>
                 </form>
               </div>
@@ -475,16 +475,16 @@ $('#update-endereco').click(()=>{
 
 $('#update-contato').click(()=>{
   var rua = $('#rua').val();
-  var telefone1 = $('#telefone1').val();
-  var telefone2 = $('#telefone2').val();
+  var telefone1 = $('#telefone1_c').val();
+  var telefone2 = $('#telefone2_c').val();
   var email =  $('#email').val();
   var senha = $('#senha').val();
   var conf_senha = $('#senha-conf').val();
 
   if((rua === "") || (telefone1 === "") || (telefone2 === "") || (email === "") || (senha === "") || (conf_senha === "")){
-    $('.estado').append('<div class="alert alert-danger" role="alert">preencha todos os campos corretamente!!</div>');
+    $('.estado3').append('<div class="alert alert-danger" role="alert">preencha todos os campos corretamente!!</div>');
     setTimeout(function(){
-      $('.estado').fadeOut("slow");
+      $('.estado3').fadeOut("slow");
     },3000);
   }else{
     if(senha === conf_senha){
@@ -492,6 +492,7 @@ $('#update-contato').click(()=>{
         method: 'POST',
         url: '../../../database/updates_aluno/contato.php',
         data:{
+          cpf:cpf,
           rua:rua,
           telefone1:telefone1,
           telefone2:telefone2,
@@ -507,7 +508,7 @@ $('#update-contato').click(()=>{
                 },3000);
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
-              $('.estdo3').append('<div class="alert alert-danger state3" role="alert">Erro ao atualizar seus dados!!</div>');
+              $('.estado3').append('<div class="alert alert-danger state3" role="alert">Erro ao atualizar seus dados!!</div>');
               setTimeout(function(){
                 $('.state3').fadeOut("slow");
               },3000);
@@ -516,6 +517,9 @@ $('#update-contato').click(()=>{
           });
   }else{
     $('.estado3').append('<div class="alert alert-danger" role="alert">preencha todos os campos corretamente!!</div>');
+     setTimeout(function(){
+                $('.state3').fadeOut("slow");
+              },3000);
   }
   }
 
