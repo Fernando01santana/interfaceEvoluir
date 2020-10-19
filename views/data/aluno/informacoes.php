@@ -172,14 +172,13 @@ try {
 
             </div>
             <div class="tab-pane fade" id="curriculo" role="tabpanel" aria-labelledby="contact-tab">
-
                 <div class="form-date">
                 <form class="curriculo">
                   <h5 class="titulo-black">Escolaridade</h5>
                     <div class="row">
                       <div class="col-6">
                         <label>Nivel escolar</label>
-                        <select name="nivel-escolar" class="form-control">
+                        <select name="nivel-escolar" id="nivel_escola" class="form-control">
                           <option value="0">Selecione</option>
                           <option value="medio">Médio</option>
                           <option value="fundamental">Fundamental</option>
@@ -188,14 +187,12 @@ try {
                       </div>
                       <div class="col-6">
                         <label>Entidade</label>
-                        <input type="text" name="entidade" class="form-control" placeholder="entidade" id="">
+                        <input type="text" name="entidade" id="entidade_escola" class="form-control" placeholder="entidade">
                       </div>
                     </div>
                     <div class="row ">
                       <div class="col-12">
                         <label>Selecione o progresso da sua formação:</label><br>
-                       
-                        
                         <input type="radio" name="radio" id="radio1"  value="incomplpeto">
                         <label>Incompleto</label>
                         
@@ -209,11 +206,11 @@ try {
                     <div class="row periodo">
                       <div class='col-6'>
                         <label for='ano de conclusao'>Ano de conclusao</label>
-                        <input type='date' name='ano_conclusao' class='form-control' id=''>
+                        <input type='date' name='ano_conclusao' class='form-control' id='ano_conclusao'>
                       </div>
                       <div class='col-6'>
                         <label for='periodo'>Perioso</label>
-                          <select name='perioso' class='form-control' id=''>
+                          <select name='perioso' class='form-control' id='periodo'>
                             <option value='0'>Selecione</option>
                             <option value='1'>1º ano</option>
                             <option value='2'>2º ano</option>
@@ -229,7 +226,7 @@ try {
 
                     <div class="col-6">
                       <label for="">Idioma</label>
-                    <select name="idioma" id="" class="form-control">
+                    <select name="idioma" id="idioma" class="form-control">
                     <option value="0">Selecione</option>
                     <option value="ingles">Ingles</option>
                     <option value="Espanhol">Esánhol</option>
@@ -238,7 +235,7 @@ try {
                     </div>
                     <div class="col-6">
                       <label for="">Nivel</label>
-                      <select name="idioma" id="" class="form-control">
+                      <select name="idioma" id="nivel_idioma" class="form-control">
                     <option value="0">Selecione</option>
                     <option value="ingles">Basico</option>
                     <option value="Espanhol">Intermediario</option>
@@ -250,34 +247,34 @@ try {
                   <h5 class="titulo-black">Conhecimentos</h5>
                   <div class="row">
                     <div class="col-6">
-                      <input type="text" name="curso" class="form-control" placeholder="curso" id="">
+                      <input type="text" name="curso" class="form-control" placeholder="curso" id="curso_basico">
                     </div>
                     <div class="col-6">
-                      <input type="text" name="entidade" class="form-control" placeholder="entidade" id="">
+                      <input type="text" name="entidade" class="form-control" placeholder="entidade" id="instituicao">
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-6">
-                      <input type="radio" name="cursando" id=""><label>Cursando</label>
+                      <input type="radio" name="cursando" id="cursando"><label>Cursando</label>
                     </div>
                     <div class="col-6">
-                      <input type="radio" name="completo" id=""><label>Completo</label>
+                      <input type="radio" name="completo" id="completo"><label>Completo</label>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-12">
                       <label for="">Carga horaria</label>
-                      <input type="number" class="form-control" name="" id="">
+                      <input type="number" class="form-control" name="" id="carga_horaria_conhecimentos">
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-6">
                       <label for="">Data de inicio</label>
-                      <input type="date" class="form-control" name="data_inicio" id="">
+                      <input type="date" class="form-control" name="data_inicio_conhecimento" id="data_inicio">
                     </div>
                     <div class="col-6">
                       <label for="">Data de termino</label>
-                      <input type="date" class="form-control" name="data_termino" id="">
+                      <input type="date" class="form-control" name="data_termino_conhecimento" id="data_termino">
                     </div>
                   </div>
 
@@ -285,29 +282,29 @@ try {
                   <div class="row">
                     <div class="col-12">
                       <label for="">Empresa</label>
-                      <input type="text" class="form-control" name="empresa" id="">
+                      <input type="text" class="form-control" name="empresa" id="exp_empresa">
                     </div>
                   </div>
                     <div class="row">
                       <div class="col-12">
                         <label for="">cargo</label>
-                        <input type="text" name="" id="" class="form-control">
+                        <input type="text" name="" id="exp_cargo" class="form-control">
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-6">
                         <label for="">data de inicio</label>
-                        <input type="date" name="dade_inicio_empresa" id="" class="form-control">
+                        <input type="date" name="data_inicio_empresa" id="data_inicio_empresa" class="form-control">
                       </div>
                       <div class="col-6">
                         <label for="">data de termino</label>
-                        <input type="date" name="data_termino_empresa" id="" class="form-control">
+                        <input type="date" name="data_termino_empresa" id="data_termino_empresa" class="form-control">
                       </div>
                     </div>
                      <div class="new-exp">
                      
                      </div>
-                    <input class="bt btn-info btn-block add-exp" value="+" type="button">
+                    <button type="button" class="btn btn-info btn-block add-exp" >adicionar outra</button>
                   <button type="submit" class="btn btn-primary btn-block">atualizar</button>
                   <a href="../../../index.php"><button class="btn btn-danger btn-block">Voltar</button></a>
                 </form>
@@ -523,6 +520,43 @@ $('#update-contato').click(()=>{
   }
   }
 
+})
+
+$('#add-exp').click(()=>{
+  //escolaridade
+  var escola_nivel = $('#nivel_escola').val();
+  var entidade = $('#entidade_escola').val();
+  var progresso_incompleto = $('#radio1').val();
+  var progresso_completo = $('#radio2').val();
+  var progresso_cursando = $('#radio3').val();
+  var progresso_total;
+if(progresso_cursando === undefined){
+  if(progresso_incompleto === undefined){
+    progresso_total = progresso_incompleto;
+  }else{
+    progresso_total = progresso_completo;
+  }
+}else{
+  var ano_conclusao = $('#ano_conclusao').val();
+  var periodo = $("#periodo").val();
+}
+
+//idioma
+  var idioma = $('#idioma').val();
+  var nivel_idioma = $('#nivel_idioma').val();
+//conhecimenos
+  var curso_basico = $('#curso_basico').val();
+  var entidade_curso_basico = $('#instituicao').val();
+  var cursando = $('#cursando').val();
+  var completo = $('#cmpleto').val();
+  var carga_horaria = $('#carga_horaria_conhecimentos');
+  var data_inicio_curso = $('#data_inicio_conhecimento').val();
+  var data_fim_curso = $('#data_termino_conhecimento');
+//experiencia profissional
+  var empresa = $('#exp_empresa').val();
+  var cargo = $('#exp_cargo').val();
+  var data_inicio_experiencia = $('#data_inicio_empresa').val();
+  var data_fim_experiencia = $('#data_termino_empresa').val();
 })
 
   $(document).ready(function(){
