@@ -247,22 +247,27 @@ try {
                   <h5 class="titulo-black">Conhecimentos</h5>
                   <div class="row">
                     <div class="col-6">
-                      <input type="text" name="curso" class="form-control" placeholder="curso" id="curso_basico">
+                      <input type="text" name="radio" class="form-control" placeholder="curso" id="curso_basico">
                     </div>
                     <div class="col-6">
-                      <input type="text" name="entidade" class="form-control" placeholder="entidade" id="instituicao">
+                      <input type="text" name="radio" class="form-control" placeholder="entidade" id="instituicao">
                     </div>
                   </div>
+
                   <div class="row">
                     <div class="col-6">
-                      <input type="radio" name="cursando" id="cursando">
+                      <input type="radio" name="radio" id="cursando" value="cursando">
                       <label>Cursando</label>
                     </div>
                     <div class="col-6">
-                      <input type="radio" name="completo" id="completo">
+                      <input type="radio" name="radio" id="completo" value="completo">
                       <label>Completo</label>
                     </div>
+                    <div class="col-6">
+                      
+                    </div>
                   </div>
+                  
                   <div class="row">
                     <div class="col-12">
                       <label for="">Carga horaria</label>
@@ -524,42 +529,29 @@ $('#update-contato').click(()=>{
 
 })
 
-$('#updade_curriculo').click(()=>{
-  //escolaridade
-  var escola_nivel = $('#nivel_escola').val();
-  var entidade = $('#entidade_escola').val();
-  var progresso_incompleto = $('#radio1').val();
-  var progresso_completo = $('#radio2').val();
-  var progresso_cursando = $('#radio3').val();
-  var progresso_total;
-if(progresso_cursando === undefined){
-  if(progresso_incompleto === undefined){
-    progresso_total = progresso_incompleto;
-  }else{
-    progresso_total = progresso_completo;
-  }
-}else{
-  var ano_conclusao = $('#ano_conclusao').val();
-  var periodo = $("#periodo").val();
-}
-alert(progresso_total);
-//idioma
-  var idioma = $('#idioma').val();
-  var nivel_idioma = $('#nivel_idioma').val();
-//conhecimenos
-  var curso_basico = $('#curso_basico').val();
-  var entidade_curso_basico = $('#instituicao').val();
-  var cursando = $('#cursando').val();
-  var completo = $('#cmpleto').val();
-  var carga_horaria = $('#carga_horaria_conhecimentos');
-  var data_inicio_curso = $('#data_inicio_conhecimento').val();
-  var data_fim_curso = $('#data_termino_conhecimento');
-//experiencia profissional
-  var empresa = $('#exp_empresa').val();
-  var cargo = $('#exp_cargo').val();
-  var data_inicio_experiencia = $('#data_inicio_empresa').val();
-  var data_fim_experiencia = $('#data_termino_empresa').val();
-})
+//fazer parte do curriculo
+
+
+
+
+//pegar variaveis
+
+
+
+
+
+//adicionar ação ao radio de cursando para definir o periodo e adicionar botao para adicionar mais cursos
+
+
+
+
+
+
+//adicionar variaveis em um array e no backend fazer um for contando cada item e girar de acordo com a quantidade
+//de itens presente dentro do array e executar a query com pdo
+
+
+
 
   $(document).ready(function(){
     $('.periodo').hide();
