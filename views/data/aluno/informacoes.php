@@ -255,10 +255,12 @@ try {
                   </div>
                   <div class="row">
                     <div class="col-6">
-                      <input type="radio" name="cursando" id="cursando"><label>Cursando</label>
+                      <input type="radio" name="cursando" id="cursando">
+                      <label>Cursando</label>
                     </div>
                     <div class="col-6">
-                      <input type="radio" name="completo" id="completo"><label>Completo</label>
+                      <input type="radio" name="completo" id="completo">
+                      <label>Completo</label>
                     </div>
                   </div>
                   <div class="row">
@@ -305,7 +307,7 @@ try {
                      
                      </div>
                     <button type="button" class="btn btn-info btn-block add-exp" >adicionar outra</button>
-                  <button type="submit" class="btn btn-primary btn-block">atualizar</button>
+                  <button type="button" class="btn btn-primary btn-block" id="updade_curriculo">atualizar</button>
                   <a href="../../../index.php"><button class="btn btn-danger btn-block">Voltar</button></a>
                 </form>
               </div>
@@ -522,7 +524,7 @@ $('#update-contato').click(()=>{
 
 })
 
-$('#add-exp').click(()=>{
+$('#updade_curriculo').click(()=>{
   //escolaridade
   var escola_nivel = $('#nivel_escola').val();
   var entidade = $('#entidade_escola').val();
@@ -540,7 +542,7 @@ if(progresso_cursando === undefined){
   var ano_conclusao = $('#ano_conclusao').val();
   var periodo = $("#periodo").val();
 }
-
+alert(progresso_total);
 //idioma
   var idioma = $('#idioma').val();
   var nivel_idioma = $('#nivel_idioma').val();
