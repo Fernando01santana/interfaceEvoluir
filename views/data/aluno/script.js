@@ -141,73 +141,6 @@ $('#update-contato').click(()=>{
   }
   }
 })
-//fazer parte do curriculo
-$('#update-curriculo').click(()=>{
-  //pegar variaveis
-    var nivel_escola = $('#nivel_escola').val();
-    var instituicao = $('#entidade_escolar').val();
-  var estado = '';
-    ///verificar se o radio foi clicado
-    if($('#radio1').prop("checked")){
-       estado = $('#radio1').val();
-    }
-    if($('#radio2').prop('checked')){
-       estado = $('#radio2').val();
-    }
-    if($('#radio3').prop('cheked')){
-       estado = $('#radio3').val();  
-    }
-    //pegar essas variaveis apenas se o radio selecionado for o de em andamento
-    var periodo = $('#periodo').val();
-
-    var idioma = $('#idioma').val();
-    var nivel_idioma = $('#nivel_idioma').val();
-
-    //cursos 
-    var curso_basico = $('#curso_basico').val();
-    var instituicao = $('#instituicao').val();
-    //estado do curso
-    var curso_cursando = $('#estado_cursando').val();
-    var curso_completo = $('#estado_completo').val();
-    var carga_horaria = $('#carga_horaria_conhecimentos').val();
-    var data_inicio = $('#data_inicio_conhecimenot').val();
-    var data_termino = $('#data_termino_conhecimento').val();
-
-    //dados da empresa
-    var empresa = $('#exp_empresa[]');
-    var cargo = $('#exp_cargo[]').val();
-    var data_inicio_empresa = $('#data_inicio_empresa[]').val();
-    var data_termino_empresa = $('#data_termino_empresa[]').val();
-
-    $.ajax({
-      method: 'POST',
-      url: '../../../database/updates_aluno/curriculo.php',
-      data:{
-        estado:estado,
-        rua:rua,
-        telefone1:telefone1,
-        telefone2:telefone2,
-        email:email,
-        senha:senha,
-        conf_senha:conf_senha,
-      },
-      dataType: 'html',
-          success: function(response) {
-              $('.estado3').append('<div class="alert alert-primary state3" role="alert">Informações atualizadas com sucesso!!</div>');
-              setTimeout(function(){
-                $('.state3').fadeOut("slow");
-              },3000);
-          },
-          error: function(XMLHttpRequest, textStatus, errorThrown) {
-            $('.estado3').append('<div class="alert alert-danger state3" role="alert">Erro ao atualizar seus dados!!</div>');
-            setTimeout(function(){
-              $('.state3').fadeOut("slow");
-            },3000);
-          }
-        });
-
-})
-
 
 
 
@@ -220,7 +153,7 @@ $('#update-curriculo').click(()=>{
   $(document).ready(function(){
     //botao de adicionar curso
     $('.add-curso').click(function(){
-      $('.curso-adicional').append('<div class="row esp" id="curso-basico"><div class="col-6"><input type="text" name="qtdeCurso[]" class="form-control" placeholder="curso" ></div><div class="col-6"><input type="text" name="qtdeEndidade[]" class="form-control" placeholder="entidade" id="instituicao"></div></div><div class="row"><div class="col-6"><label for="">Data de inicio</label><input type="date" class="form-control" name="data_inicio_conhecimento" id="data_inicio[]"></div><div class="col-6"><label for="">Data de termino</label><input type="date" class="form-control" name="data_termino_conhecimento[]" id="data_inicio"></div></div> ');
+      $('.curso-adicional').append('<div class="row esp" id="curso-basico"><div class="col-6"><input type="text" name="qtdeCurso[]" class="form-control" placeholder="curso" ></div><div class="col-6"><input type="text" name="qtdeEndidade[]" class="form-control" placeholder="entidade" id="instituicao"></div></div><div class="row"><div class="col-6"><label for="">Data de inicio</label><input type="date" class="form-control" name="data_inicio_conhecimento[]" id="data_inicio[]"></div><div class="col-6"><label for="">Data de termino</label><input type="date" class="form-control" name="data_termino_conhecimento[]" id="data_inicio"></div></div> ');
       var qtdeCurso = $("#qtdeCurso[]").val()
       var qtdeEntidade = $('#qtdeEntidade[]').val()
     });

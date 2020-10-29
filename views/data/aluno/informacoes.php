@@ -177,12 +177,17 @@ try {
               </div>
               <div class="tab-pane fade" id="curriculo" role="tabpanel" aria-labelledby="contact-tab">
                 <div class="form-date">
-                  <form class="curriculo">
+                  <form class="curriculo" method="POST" action="../../../database/updates_aluno/curriculo.php">
                     <h5 class="titulo-black">Escolaridade</h5>
+                    <div class="row">
+                      <div class="col-12 sucesso-envio">
+
+                      </div>
+                    </div>
                     <div class="row">
                       <div class="col-6">
                         <label>Nivel de ensino</label>
-                        <select name="nivel-escolar" id="nivel_escola" class="form-control">
+                        <select name="nivel_escola" id="nivel_escola" name="nivel_escola" class="form-control">
                           <option value="0">Selecione</option>
                           <option value="medio">Médio</option>
                           <option value="fundamental">Fundamental</option>
@@ -191,19 +196,19 @@ try {
                       </div>
                       <div class="col-6">
                         <label>Entidade</label>
-                        <input type="text" name="entidade" id="entidade_escola" class="form-control" placeholder="entidade">
+                        <input type="text" name="instituicao" id="entidade_escola" class="form-control" placeholder="entidade">
                       </div>
                     </div>
                     <div class="row ">
                       <div class="col-12">
                         <label>Selecione o progresso da sua formação:</label><br>
-                        <input type="radio" name="radio" id="radio1" value="incomplpeto">
+                        <input type="radio" name="radio1" id="radio1" value="incomplpeto">
                         <label>Incompleto</label>
 
-                        <input type="radio" name="radio" id="radio2" value="completo">
+                        <input type="radio" name="radio2" id="radio2" value="completo">
                         <label>Completo</label>
 
-                        <input type="radio" name="radio" id="radio3" value="cursando">
+                        <input type="radio" name="radio3" id="radio3" value="cursando">
                         <label>Cursando</label>
                       </div>
                     </div>
@@ -214,7 +219,7 @@ try {
                       </div>
                       <div class='col-6'>
                         <label for='periodo'>Periodo</label>
-                        <select name='perioso' class='form-control' id='periodo'>
+                        <select name='periodo' class='form-control' id='periodo'>
                           <option value='0'>Selecione</option>
                           <option value='1'>1º ano</option>
                           <option value='2'>2º ano</option>
@@ -239,7 +244,7 @@ try {
                       </div>
                       <div class="col-6">
                         <label for="">Nivel</label>
-                        <select name="idioma" id="nivel_idioma" class="form-control">
+                        <select name="nivel_idioma" id="nivel_idioma" class="form-control">
                           <option value="0">Selecione</option>
                           <option value="ingles">Basico</option>
                           <option value="Espanhol">Intermediario</option>
@@ -268,7 +273,7 @@ try {
                     <div class="row">
                       <div class="col-12">
                         <label for="">cargo</label>
-                        <input type="text" name="" id="exp_cargo[]" class="form-control">
+                        <input type="text" name="cargos[]" id="exp_cargo" class="form-control">
                       </div>
                     </div>
                     <div class="row">
@@ -285,8 +290,8 @@ try {
 
                     </div>
                     <button type="button" class="btn btn-info btn-block add-exp">adicionar outra</button>
-                    <button type="button" class="btn btn-primary btn-block" id="updade_curriculo">atualizar</button>
-                    <a href="../../../index.php"><button class="btn btn-danger btn-block">Voltar</button></a>
+                    <button type="submit" class="btn btn-primary btn-block" id="atualizar_curriculo">atualizar</button>
+                    <button type="button" class="btn btn-danger btn-block">Voltar</button>
                   </form>
                 </div>
               </div>
