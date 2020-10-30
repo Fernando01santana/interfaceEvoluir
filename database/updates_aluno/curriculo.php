@@ -20,17 +20,32 @@ if(isset( $_POST['radio1']) === true){
 }
 }
 //idioma
-$idioma = $_POST['idioma'];
-$nivel_idioma = $_POST['nivel_idioma'];
+     $idioma = $_POST['idioma'];
+     $nivel_idioma = $_POST['nivel_idioma'];
+     $qtdeEntidade = '';
+     $data_inicio_conhecimento = '';
+     $data_termino_conhecimento = '';
+if (isset($_POST['qtdeCurso']) && isset($_POST['qtdeEndidade']) && isset($_POST['data_inicio_conhecimento'])&& isset($_POST['data_termino_conhecimento']) ) {
+     $qtdeEntidade = $_POST['qtdeCurso'];
+     $data_inicio_conhecimento = $_POST['data_inicio_conhecimento'];
+     $data_termino_conhecimento = $_POST['data_termino_conhecimento'];  
+     $email = $_SESSION['user'];
+     $cursos = json_encode($qtdeEntidade);
+     echo $cursos;
 
-//conhecimento   $_POST['data_inicio_conhecimento[]'] 
-if(isset( $_POST['qtdeEntidade[]']) === true && isset($_POST['qtdeEntidade[]']) === true  && isset($_POST['data_termino_conhecimento[]']) === true &&  isset($_POST['data_inicio_conhecimento[]']) === true   ){
- $qtdeCurso = $_POST['qtdeCurso[]'];
- $qtdeEntidade = $_POST['qtdeEntidade[]'];
- $data_inicio_conhecimento = $_POST['data_inicio_conhecimento[]'];
- $data_termino_conhecimento = $_POST['data_termino_conhecimento[]'];
+     try {
+        $consulta = $pdo->prepare("UPDATE curriculos SET curso = :curso WHERE id = :id");
+        $consulta->bindValue(':curso',$cursos);
+        $consulta->bindValue(':id',1);
+        $consulta->execute();
+    }catch (PDOException $th) {
+        echo $th;
+    }
+
 }
-//dados empresa
+
+
+/*dados empresa
 $empresa = $_POST['empresa'];
 $cargo = $_POST['cargos'];
 $data_inicio_empresa = $_POST['data_inicio_empresa'];
@@ -39,7 +54,7 @@ $data_termino_empresa = $_POST['data_termino_empresa'];
 mandar dados para o banco usando PDO
 
 fazer busca no banco e pegar o id do aluno para inserir na chave primaria
-*/
+
 $usuario = $_SESSION['user'];
 $senha = $_SESSION['pass'];
 echo $usuario;
@@ -77,5 +92,5 @@ try {
 } catch (\Throwable $th) {
     echo $th->getMessage();
 }
-
+*/
 ?>
