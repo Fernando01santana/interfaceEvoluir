@@ -23,6 +23,9 @@
         border-radius:10px;
         background: white;
       }
+      .add-exp{
+        margin-top:0.5rem;
+      }
     </style>
   </head>
   <body>
@@ -142,7 +145,7 @@
 
                 </div>
                 <button type="button" class="btn btn-info btn-block add-exp">adicionar outra</button>
-                <button type="submit" class="btn btn-primary btn-block" id="atualizar_curriculo">atualizar</button>
+                <button type="submit" class="btn btn-primary btn-block" id="atualizar_curriculo">cadastrar</button>
                 <button type="button" class="btn btn-danger btn-block">Voltar</button>
               </form>
         </div>
