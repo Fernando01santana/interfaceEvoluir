@@ -202,13 +202,13 @@ try {
                     <div class="row ">
                       <div class="col-12">
                         <label>Selecione o progresso da sua formação:</label><br>
-                        <input type="radio" name="radio1" id="radio1" value="incomplpeto">
+                        <input type="radio" name="radio_encino" id="radio1" value="incompleto">
                         <label>Incompleto</label>
 
-                        <input type="radio" name="radio2" id="radio2" value="completo">
+                        <input type="radio" name="radio_encino" id="radio2" value="completo">
                         <label>Completo</label>
 
-                        <input type="radio" name="radio3" id="radio3" value="cursando">
+                        <input type="radio" name="radio_encino" id="radio3" value="cursando">
                         <label>Cursando</label>
                       </div>
                     </div>
