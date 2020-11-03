@@ -9,12 +9,11 @@ session_start();
 $email = $_SESSION['user'];
 try {
     //validar pelo email ou identificador
-   $consulta = $pdo->prepare("SELECT id FROM alunos WHERE email = :email");
+   $consulta = $pdo->prepare("SELECT * FROM alunos WHERE email = :email");
    $consulta->bindValue(':email',$email);
    $consulta->execute();
    $row = $consulta->fetchAll();
    $id = $row[0]['id'];
-   echo $id;
 
 }catch (PDOException $th) {
    echo $th;
@@ -57,15 +56,19 @@ try {
         $data_termino_empresa = '';
      if (isset($_POST['exp_empresa']) && isset($_POST['cargos']) && isset($_POST['data_inicio_empresa'])&& isset($_POST['data_termino_empresa']) ) {
         $exp_empresa = $_POST['qtdeCurso'];
-        $data_inicio_conhecimento = $_POST['data_inicio_conhecimento'];
-        $data_termino_conhecimento = $_POST['data_termino_conhecimento'];  
+        //$data_inicio_conhecimento = $_POST['data_inicio_conhecimento'];
+        //$data_termino_conhecimento = $_POST['data_termino_conhecimento'];
+        $data_inicio_empresa = $_POST['data_inicio_empresa'];
+        $data_terminou_empresa = $_POST['data_termino_empresa'];
         $entidade_curso = $_POST['qtdeEntidade'];
        
    
         $exp_empresa = json_encode($entidade_curso);
         $cargos = json_encode($qtdeEntidade);
-        $data_inicio_empresa = json_encode($data_inicio_conhecimento);
-        $data_termino_empresa = json_encode($data_termino_conhecimento);
+        //$data_inicio_con = json_encode($data_inicio_conhecimento);
+        //$data_termino_con = json_encode($data_termino_conhecimento);
+        $data_inicio_emp = json_encode($data_inicio_empresa);
+        $data_terminou_emp = json_encode($data_inicio_empresa);
      }else{
         $exp_empresa = '';
         $cargos = '';
@@ -83,7 +86,7 @@ try {
         $data_inicio_conhecimento = '';
         $data_termino_conhecimento = '';
 try {
-    $stmt = $pdo->prepare("INSERT INTO curriculos SET  
+    $stmt = $pdo->prepare("UPDATE curriculos SET  
     id_aluno = :id_aluno, 
     nivel = :nivel, 
     entidade = :entidade,

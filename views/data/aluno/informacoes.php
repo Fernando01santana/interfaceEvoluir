@@ -279,11 +279,11 @@ try {
                     <div class="row">
                       <div class="col-6">
                         <label for="">data de inicio</label>
-                        <input type="date" name="data_inicio_empresa" id="data_inicio_empresa[]" class="form-control">
+                        <input type="date" name="data_inicio_empresa[]" id="data_inicio_empresa" class="form-control">
                       </div>
                       <div class="col-6">
                         <label for="">data de termino</label>
-                        <input type="date" name="data_termino_empresa" id="data_termino_empresa[]" class="form-control">
+                        <input type="date" name="data_termino_empresa[]" id="data_termino_empresa" class="form-control">
                       </div>
                     </div>
                     <div class="new-exp">

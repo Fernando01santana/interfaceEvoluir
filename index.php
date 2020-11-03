@@ -6,6 +6,7 @@ if((isset($_SESSION['user']) == true) and (isset($_SESSION['pass']) == true))
   unset($_SESSION['pass']);
 }
 ?>
+
 <div class="container-fluid bd-dark">
 
     <div class="row">
