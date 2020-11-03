@@ -23,14 +23,15 @@
                     $stmt->execute();
                    
                     while ($row_message_acount = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                        echo '<div class="vagas">'.$row_message_acount['id'].'</div>';
+                        echo '<div class="vagas"><form action=""><div class="row"><div class="col-12"><h2>'.$row_message_acount['empresa'].'</h2></div></div><div class="row"><div class="col-12"><label for="area">Descrição da vaga:</label><p class="descricao">'.$row_message_acount['descricao'].'</p></div></div><div class="row"><div class="col-6"><label for="">Requisitos:</label><ul><li>Requisito tal</li></ul></div><div class="col-6"><label for="">Idade exigida:</label><p>'.$row_message_acount['idade'].'anos</p></div></div><div class="row"><div class="col-6"><label for="">Tipo da vaga:</label><p>'.$row_message_acount['tipo'].'</p></div></div><div class="row"><div class="col-6"><label for="">Remuneração:</label><p>'.$row_message_acount['salario'].'</p></div><div class="col-6"><label for="">Contato:</label><p>'.$row_message_acount['contato'].'</p></div></div><div class="row"><div class="col-12"><input type="submit" class="btn btn-success btn-block" value="me candidatar!"></div></div></form></div>';
+                        
                     }
-                    //var_dump($retorno);
-                } catch (PDOException $th) {
+               } catch (PDOException $th) {
                     echo $th;
                 }
                 ?>
                 
+
             </div>
         </div>  
     </div>

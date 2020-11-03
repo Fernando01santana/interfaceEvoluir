@@ -33,7 +33,6 @@ if((isset($_SESSION['user']) == true) and (isset($_SESSION['pass']) == true))
                
                <div class="butons">
                     <button class=""><a href="views/cad/aluno.php"><img src="views/cad/img/aluno2.png" alt=""><b><h5>Aluno</h5></b></button></a>
-                    <button class=""><a href="views/cad/escola.php"><img src="views/cad/img/educacao.png" alt=""><b><h5>Escola</h5></b></a></button>
                     <button class=""><a href="views/cad/empresa.php"><img src="views/cad/img/empresa.png" alt=""><b><h5>Empresa</h5></b></a> </button>
                </div>
                <div class="seguimento" align=center>

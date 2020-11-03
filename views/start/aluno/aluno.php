@@ -35,7 +35,7 @@ if((!isset ($_SESSION['user']) == true) and (!isset ($_SESSION['pass']) == true)
                   <a href="../../vagas/vagas.php"><button class="btn btn-primary "><i class="icone fas fa-search"></i><br><p>Vagas</p></button></a>
               </div>
               <div class="exit">
-                <a href="../../index.php"><button class="btn btn-danger icone-exit" ><i class="fas fa-sign-out-alt"></i> Sair</button></a>
+                <a href="../../../index.php"><button class="btn btn-danger icone-exit" ><i class="fas fa-sign-out-alt"></i> Sair</button></a>
               </div>
             </div>
             </div>

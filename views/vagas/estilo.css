@@ -24,11 +24,13 @@ body{
 }
 
 .vagas{
+   
     border-radius:10px;
     margin:0.5rem;
     background:#001b4f;
     width:70%;
     margin-bottom: 2rem;
+    padding:1rem;
 }
 .area{
     padding-right: 0;
@@ -50,4 +52,18 @@ body{
     text-align: center;
     width:100%;
     margin-top:2rem;
+}
+
+label,p,li{
+    color:white;
+}
+.descricao{
+    margin-top:2rem;
+    margin-bottom:2rem;
+    text-align: justify;
+}
+
+h2{
+    color:white;
+    text-align: center;
 }

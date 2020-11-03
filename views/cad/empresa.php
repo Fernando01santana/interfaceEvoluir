@@ -24,8 +24,8 @@
                                     <label for="inputEmail4">Tipo de pessoa:</label>
                                      <select class="form-control" name="tipoPessoa" id="">
                                          <option value="0">Selecione</option>
-                                         <option value="J">Pessoa Juridica</option>
-                                         <option value="F">Pessoa Fisica</option>
+                                         <option value="pessoa_juridica">Pessoa Juridica</option>
+                                         <option value="pessoa_fisica">Pessoa Fisica</option>
                                      </select>
                                 </div>
                             </div>
@@ -63,9 +63,9 @@
                                     <label for="inputCity">Tipo de empresa:</label>
                                     <select class="form-control" name="tipo_empresa" id="" required>
                                         <option value="0">Selecione</option>
-                                        <option value="P">Empresa Privada</option>
-                                        <option value="PU">Empresa Publica</option>
-                                        <option value="V">Empresa Mista</option>
+                                        <option value="empresa_privada">Empresa Privada</option>
+                                        <option value="empresa_publica">Empresa Publica</option>
+                                        <option value="empresa_mista">Empresa Mista</option>
                                     </select>
                                 </div>
                             </div>
