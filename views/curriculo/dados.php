@@ -99,7 +99,7 @@ try {
         $_SESSION['curriculo'] = '<div class="alert alert-success" role="alert">
         Curriculo cadastrado com sucesso!!
                                 </div>';
-        header('Location: ../data/start/aluno/aluno.php');
+        header('Location: ../start/aluno/aluno.php');
 } catch (PDOException $th) {
     
     $_SESSION['curriculo'] = '<div class="alert alert-danger" role="alert">
