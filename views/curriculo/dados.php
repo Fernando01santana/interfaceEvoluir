@@ -26,6 +26,15 @@ if(isset($_POST['nivel_escola'])){
     $periodo = $_POST['periodo'];
     $idioma = $_POST['idioma'];
     $nivel_idioma = $_POST['nivel_idioma'];
+}else{
+    $nivel_escola = '';
+    $instituicao = '';
+    //pegando valor dos radios de ensino medio
+    $progresso_curso = '';
+    $ano_conclusao = '';
+    $periodo = '';
+    $idioma = '';
+    $nivel_idioma = '';
 }
 
 //pegando dados dos cursos e trasnformando em json para mandar para o banco
@@ -90,7 +99,7 @@ try {
         $_SESSION['curriculo'] = '<div class="alert alert-success" role="alert">
         Curriculo cadastrado com sucesso!!
                                 </div>';
-        header('Location:./curriculo');
+        header('Location: ../data/start/aluno/aluno.php');
 } catch (PDOException $th) {
     
     $_SESSION['curriculo'] = '<div class="alert alert-danger" role="alert">

@@ -32,6 +32,9 @@ try {
   #curso-basico{
     margin-top:1rem;
 }
+form{
+  padding:2rem;
+}
 </style>
 
 
@@ -123,7 +126,7 @@ try {
                     </div>
 
                     <button type="button" id="updade-info" class="btn btn-primary btn-block">atualizar</button>
-                    <a href="../../../index.php"><button class="btn btn-danger btn-block">Voltar</button></a>
+                    <a href="../../../views/start/aluno/aluno.php"><input type="button" class="btn btn-danger btn-block" value="Voltar"></a>
                   </form>
 
                 </div>
