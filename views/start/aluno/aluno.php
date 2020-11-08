@@ -24,7 +24,7 @@ if((!isset ($_SESSION['user']) == true) and (!isset ($_SESSION['pass']) == true)
 
   if($data_id_aluno !== null){
     $botao1 = '<a href="../../data/aluno/informacoes.php"><button class="btn btn-primary"><i class=" icone fas fa-user"></i><br><p> Dados </p></button></a>';
-    $botao2 = '<a href="../../curriculo/"><button class="btn btn-primary curriculo" disabled><i class=" icone fas fa-edit"></i><br><p>Curriculo</p></button></a>';
+    $botao2 = '<button class="btn btn-primary curriculo" disabled><i class=" icone fas fa-edit"></i><br><p>Curriculo</p></button>';
   }else{
     $botao1 = '<button class="btn btn-primary" disabled><i class=" icone fas fa-user"></i><br><p> Dados </p></button>';
     $botao2 = '<a href="../../curriculo/"><button class="btn btn-primary curriculo"><i class=" icone fas fa-edit"></i><br><p>Curriculo</p></button></a>';

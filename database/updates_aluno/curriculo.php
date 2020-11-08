@@ -24,8 +24,23 @@ $progresso_curso ='';
 if(isset($_POST['radio_encino'])){
     $progresso_curso = $_POST['radio_encino'];
 }
-
-
+/*
+mandar dados para o banco usando PDO
+fazer busca no banco e pegar o id do aluno para inserir na chave primaria
+*/
+/*
+echo $usuario;
+try {
+    $consulta = $pdo->prepare("SELECT * FROM alunos WHERE email = :email");
+    $consulta->bindValue(':email',$usuario);
+    $consulta->execute();
+    $dados_aluno = $consulta->fetchAll();
+    $id_aluno = $dados_aluno[0]['id'];
+   // echo $id_aluno;
+}catch (PDOException $th) {
+    echo $th;
+}*/
+//pegando valores da empresa e transformando em json
      //adicionando ao banco os dados com array dos cursos, todos convertidos em json
      $data_inicio_empresa = '';
         $data_termino_empresa = '';
