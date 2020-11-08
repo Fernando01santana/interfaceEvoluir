@@ -126,7 +126,7 @@ form{
                     </div>
 
                     <button type="button" id="updade-info" class="btn btn-primary btn-block">atualizar</button>
-                    <a href="../../../views/start/aluno/aluno.php"><input type="button" class="btn btn-danger btn-block" value="Voltar"></a>
+                    <a href="../../start/aluno/aluno.php"><button type="button" class="btn btn-danger btn-block">Voltar</button></a>
                   </form>
 
                 </div>
@@ -173,7 +173,7 @@ form{
                     </div>
 
                     <button type="button" class="btn btn-primary btn-block" id="update-endereco">atualizar</button>
-                    <a href="../../../index.php"><button class="btn btn-danger btn-block">Voltar</button></a>
+                    <a href="../../start/aluno/aluno.php"><button type="button" class="btn btn-danger btn-block">Voltar</button></a>
                   </form>
 
                 </div>
@@ -184,7 +184,11 @@ form{
                     <h5 class="titulo-black">Escolaridade</h5>
                     <div class="row">
                       <div class="col-12 sucesso-envio">
-
+                        <?php 
+                          if(isset($_SESSION['msg-curriculo'])){
+                            echo $_SESSION['msg-curriculo'];
+                          }
+                        ?>
                       </div>
                     </div>
                     <div class="row">
@@ -205,13 +209,13 @@ form{
                     <div class="row ">
                       <div class="col-12">
                         <label>Selecione o progresso da sua formação:</label><br>
-                        <input type="radio" name="radio_encino" id="radio1" value="incompleto">
+                        <input type="radio" name="radio_ensino" id="radio1" value="incompleto">
                         <label>Incompleto</label>
 
-                        <input type="radio" name="radio_encino" id="radio2" value="completo">
+                        <input type="radio" name="radio_ensino" id="radio2" value="completo">
                         <label>Completo</label>
 
-                        <input type="radio" name="radio_encino" id="radio3" value="cursando">
+                        <input type="radio" name="radio_ensino" id="radio3" value="cursando">
                         <label>Cursando</label>
                       </div>
                     </div>
@@ -294,7 +298,7 @@ form{
                     </div>
                     <button type="button" class="btn btn-info btn-block add-exp">adicionar outra</button>
                     <button type="submit" class="btn btn-primary btn-block" id="atualizar_curriculo">atualizar</button>
-                    <button type="button" class="btn btn-danger btn-block">Voltar</button>
+                    <a href="../../start/aluno/aluno.php"><button type="button" class="btn btn-danger btn-block">Voltar</button></a>
                   </form>
                 </div>
               </div>
@@ -345,7 +349,7 @@ form{
 
 
                     <button type="button" class="btn btn-primary btn-block" id="update-contato">atualizar</button>
-                    <a href="../../../index.php"><button class="btn btn-danger btn-block">Voltar</button></a>
+                    <a href="../../start/aluno/aluno.php"><button type="button" class="btn btn-danger btn-block">Voltar</button></a>
                   </form>
                 </div>
               </div>

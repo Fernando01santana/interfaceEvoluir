@@ -1,135 +1,95 @@
-<?php
-include('../conection.php');
+<?php 
+//conecxao com o banco
+include '../../database/conection.php';
+//iniciando sessao
 session_start();
-//escolaridade
 
+$usuario = $_SESSION['user'];
+//pegando id do usuario na tabela alunos
+$stmt = $pdo->prepare("SELECT id FROM alunos WHERE `email`=:email");
+$stmt->bindValue('email',$usuario);
+$stmt->execute();
+$data_id = $stmt->fetchAll();
+$id_user = $data_id[0]['id'];
 
+//pegando valores das variaveis contidas no formulario
 
-//pegando id do usuario ativo fazendo uma pesquisa no banco
-$email = $_SESSION['user'];
-try {
-    //validar pelo email ou identificador
-   $consulta = $pdo->prepare("SELECT * FROM alunos WHERE email = :email");
-   $consulta->bindValue(':email',$email);
-   $consulta->execute();
-   $row = $consulta->fetchAll();
-   $id = $row[0]['id'];
+//dados sobre formação
+$nivel_escola = $_POST['nivel_escola'];
+$instituicao = $_POST['instituicao'];
+$ensino = $_POST['radio_ensino'];
+$ano_conclusao = $_POST['ano_conclusao'];
+$periodo = $_POST['periodo'];
 
-}catch (PDOException $th) {
-   echo $th;
+echo $nivel_escola."<br>".$instituicao."<br>".$ensino."<br>".$ano_conclusao."<br>".$periodo;
+//dados idioma
+$idioma = $_POST['idioma'];
+$nivel_idioma = $_POST['nivel_idioma'];
+
+//dados sobre conhecimentos
+if(isset($_POST['qtdeCurso'])){
+    $curso = $_POST['qtdeCurso'];
+    $entidade = $_POST['qtdeEntidade'];
+    $data_inicio_conhecimento = $_POST['data_inicio_conhecimento'];
+    $data_termino_conhecimento = $_POST['data_termino_conhecimento'];
+
+    //transformando tudo em JSON
+    $curso_json = json_encode($curso);
+    $entidade_json = json_encode($entidade);
+    $data_inicio_json = json_encode($data_inicio_conhecimento);
+    $data_termino_json = json_encode($data_termino_conhecimento);
+
+}else{
+    $curso_json = '';
+    $entidade_json = '';
+    $data_inicio_json = '';
+    $data_termino_json = '';
 }
 
-//pegando valor dos radios de ensino medio
-$progresso_curso ='';
-if(isset($_POST['radio_encino'])){
-    $progresso_curso = $_POST['radio_encino'];
+//dados da experiencia
+if(isset($_POST['empresa'])){
+    $empresas = $_POST['empresa'];
+    $cargo_empresa = $_POST['cargos'];
+    $data_inicio_empresa = $_POST['data_inicio_empresa'];
+    $data_termino_empresa = $_POST['data_termino_empresa'];
+
+    //transformando tudo em JSON
+    $empresa_json = json_encode($empresas);
+    $cargo_empresas_json = json_encode($cargo_empresa);
+    $data_inicio_empresa_json = json_encode($data_inicio_empresa);
+    $data_termino_empresa_json = json_encode($data_termino_empresa);
+}else{
+    $empresa_json = '';
+    $cargo_empresas_json = '';
+    $data_inicio_empresa_json = '';
+    $data_termino_empresa_json = '';
 }
-/*
-mandar dados para o banco usando PDO
-fazer busca no banco e pegar o id do aluno para inserir na chave primaria
-*/
-/*
-echo $usuario;
+
+//atualizando dados da tabela curriculo
 try {
-    $consulta = $pdo->prepare("SELECT * FROM alunos WHERE email = :email");
-    $consulta->bindValue(':email',$usuario);
-    $consulta->execute();
-    $dados_aluno = $consulta->fetchAll();
-    $id_aluno = $dados_aluno[0]['id'];
-   // echo $id_aluno;
-}catch (PDOException $th) {
-    echo $th;
-}*/
-//pegando valores da empresa e transformando em json
-     //adicionando ao banco os dados com array dos cursos, todos convertidos em json
-     $data_inicio_empresa = '';
-        $data_termino_empresa = '';
-     if (isset($_POST['empresa']) && isset($_POST['cargos']) && isset($_POST['data_inicio_empresa'])&& isset($_POST['data_termino_empresa']) ) {
-        $exp_empresa = $_POST['empresa'];
-        $cargos = $_POST['cargos'];
-        $data_inicio_empresa = $_POST['data_inicio_empresa'];
-        $data_terminou_empresa = $_POST['data_termino_empresa'];
-        
-        $qtdeCurso = $_POST['qtdeCurso'];
-        $entidade_curso = $_POST['qtdeEntidade'];
-        $inicio_curso = $_POST['data_inicio_conhecimento'];
-        $termino_curso = $_POST['data_termino_conhecimento'];
-        
-        $exp_empresa_txt = json_encode($exp_empresa);
-        $cargos_txt = json_encode($cargos);
-        $data_inicio_emp = json_encode($data_inicio_empresa);
-        $data_termino_emp = json_encode($data_inicio_empresa);
-
-        $qtdeCurso_txt = json_encode($qtdeCurso);
-        $entidade_curso_txt = json_encode($entidade_curso);
-        $inicio_curso_txt = json_encode($inicio_curso);
-        $termino_curso_txt = json_encode($termino_curso);
-    }else{
-        $exp_empresa = '';
-        $cargos = '';
-        $data_inicio_empresa = '';
-        $data_termino_empresa = '';
-     }
-        $nivel_escola = $_POST['nivel_escola'];
-        $instituicao = $_POST['instituicao'];
-        $ano_conclusao = $_POST['ano_conclusao'];
-        $periodo = $_POST['periodo'];
-        //pegando valor de idioma e nivel de idioma
-        $idioma = $_POST['idioma'];
-        $nivel_idioma = $_POST['nivel_idioma'];
-        $qtdeEntidade = '';
-try {
-    $stmt = $pdo->prepare("UPDATE `curriculos` SET `id_aluno`=:id_aluno,`nivel`=:nivel,`entidade`=:entidade,`estado`=:estado,`ano_conclusao`=:ano_conclusao,`periodo`=:periodo,`idioma`=:idioma,`nivel_idioma`=:nivel_idioma,`curso`=:curso,`entidade_curso`=:entidade_curso,`data_inicio_curso`=:data_inicio_curso,`data_termino_curso`=:data_termino_curso,`empresa`=:empresa,`cargo`=:cargo,`data_inicio_emrpesa`=:data_inicio_empresa,`data_termino_empresa`=:data_termino_empresa WHERE id=:id");
-
-
-    $stmt->bindValue(':id_aluno',$id); //ok
-    $stmt->bindValue(':nivel',$nivel_escola); //ok
-    $stmt->bindValue(':entidade',$instituicao); //ok
-    $stmt->bindValue(':estado',$progresso_curso); //ok
-    $stmt->bindValue(':ano_conclusao',$ano_conclusao); //ok
-    $stmt->bindValue(':periodo',$periodo); //ok
-    $stmt->bindValue(':idioma',$idioma); //ok
-    $stmt->bindValue(':nivel_idioma',$nivel_idioma); //ok
-    $stmt->bindValue(':curso',$qtdeCurso_txt); //ok
-    $stmt->bindValue(':entidade_curso',$entidade_curso_txt); //ok
-    $stmt->bindValue(':data_inicio_curso',$inicio_curso_txt); //ok
-    $stmt->bindValue(':data_termino_curso',$termino_curso_txt); //ok
-    $stmt->bindValue(':empresa',$exp_empresa_txt); //ok
-    $stmt->bindValue(':cargo',$cargos_txt); //ok
-    $stmt->bindValue(':data_inicio_empresa',$data_inicio_emp); //ok
-    $stmt->bindValue(':data_termino_empresa',$data_termino_emp); //ok
-    $stmt->bindValue(':id',$id);
+    $stmt = $pdo->prepare("UPDATE curriculos SET `id_aluno`=:id_aluno,`nivel`=:nivel,`entidade`=:entidade,`estado`=:estado,`ano_conclusao`=:ano_conclusao,`periodo`=:periodo,`idioma`=:idioma,`nivel_idioma`=:nivel_idioma,`curso`=:curso,`entidade_curso`=:entidade_curso,`data_inicio_curso`=:data_inicio_curso,`data_termino_curso`=:data_termino_curso,`empresa`=:empresa,`cargo`=:cargo,`data_inicio_empresa`=:data_inicio_empresa,`data_termino_empresa`=:data_termino_empresa WHERE id_aluno =".$id_user);
+    $stmt->bindValue(':id_aluno',$usuario);
+    $stmt->bindValue(':nivel',$nivel_escola);
+    $stmt->bindValue(':entidade',$instituicao);
+    $stmt->bindValue(':estado',$ensino);
+    $stmt->bindValue(':ano_conclusao',$ano_conclusao);
+    $stmt->bindValue(':periodo',$periodo);
+    $stmt->bindValue(':idioma',$idioma);
+    $stmt->bindValue(':nivel_idioma',$nivel_idioma);
+    $stmt->bindValue(':curso',$curso_json);
+    $stmt->bindValue(':entidade_curso',$entidade_json);
+    $stmt->bindValue(':data_inicio_curso',$data_inicio_json);
+    $stmt->bindValue(':data_termino_curso',$data_termino_json);
+    $stmt->bindValue(':empresa',$empresa_json);
+    $stmt->bindValue(':cargo',$cargo_empresas_json);
+    $stmt->bindValue(':data_inicio_empresa',$data_inicio_empresa_json);
+    $stmt->bindValue(':data_termino_empresa',$data_termino_empresa_json);
     $stmt->execute();
+    $_SESSION['msg-curriculo'] = '<div class="alert alert-success" role="alert">Informações atualizadas!</div>';
+    header('Location: ../../views/data/aluno/informacoes.php');
 } catch (\Throwable $th) {
-    echo $th->getMessage();
+    $_SESSION['msg-curriculo'] = '<div class="alert alert-danger" role="alert">Erro ao atualizar informações</div>';
+    header('Location: ../../views/data/aluno/informacoes.php');
 }
+?>
 
-
-
-     //adicionando ao banco os dados com array dos cursos, todos convertidos em json
-     if (isset($_POST['qtdeCurso']) && isset($_POST['qtdeEntidade']) && isset($_POST['data_inicio_conhecimento'])&& isset($_POST['data_termino_conhecimento']) ) {
-        $qtdeEntidade = $_POST['qtdeCurso'];
-        $data_inicio_conhecimento = $_POST['data_inicio_conhecimento'];
-        $data_termino_conhecimento = $_POST['data_termino_conhecimento'];  
-        $entidade_curso = $_POST['qtdeEntidade'];
-       
-   
-        $entidade = json_encode($entidade_curso);
-        $cursos = json_encode($qtdeEntidade);
-        $data_inicio = json_encode($data_inicio_conhecimento);
-        $data_fim = json_encode($data_termino_conhecimento);
-   
-        try {
-            //validar pelo email ou identificador
-           $consulta = $pdo->prepare("UPDATE curriculos SET curso = :curso,data_inicio_curso = :data_inicio,data_termino_curso = :data_termino,entidade_curso = :entidade_curso WHERE id = :id");
-           $consulta->bindValue(':curso',$cursos);
-           $consulta->bindValue(':data_inicio',$data_inicio);
-           $consulta->bindValue(':data_termino',$data_fim);
-           $consulta->bindValue(':entidade_curso',$entidade);
-           $consulta->bindValue(':id',$id);
-           $consulta->execute();
-       }catch (PDOException $th) {
-           echo $th;
-       }
-   
-   }

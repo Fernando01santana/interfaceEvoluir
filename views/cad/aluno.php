@@ -93,10 +93,7 @@
                                 </div>
                                
                             </div>
-                            <div class="form-group">
-                                <label for="inputAddress">CPF</label>
-                                <input type="text" class="form-control" onkeypress="$(this).mask('000.000.000-00');" name="cpf"  id="inputAddress" placeholder="Digite seu CPF" maxlength="11" autocomplete="off" required>
-                            </div>
+                            
                             <div class="form-group">
                                 <label for="inputAddress2">Data de nascimento:</label>
                                 <input type="date" class="form-control" name="data_nascimento" id="inputAddress2" placeholder="data de nascimento" required>

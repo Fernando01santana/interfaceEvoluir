@@ -8,7 +8,6 @@ error_reporting(E_ALL);
 
 $nome = $_POST['nome'];
 $sexo = $_POST['sexo'];
-$cpf = $_POST['cpf'];
 $data_nascimento = $_POST['data_nascimento'];
 $estado_civil = $_POST['estado-civil'];
 $cep = $_POST['cep'];
@@ -34,12 +33,11 @@ try {
                     header('Location: ../views/cad/aluno.php');
                 } else {
                     try {
-                        $stmt2 = $pdo->prepare("INSERT INTO alunos(id,nome,senha,sexo,cpf,data_nascimento,estado,estado_civil,cidade,rua,numero,bairro,email,telefone1,telefone2) VALUES(:id,:nome,:senha,:sexo,:cpf,:data_nascimento,:estado,:estado_civil,:cidade,:rua,:numero,:bairro,:email,:telefone1,:telefone2)");
+                        $stmt2 = $pdo->prepare("INSERT INTO alunos(id,nome,senha,sexo,data_nascimento,estado,estado_civil,cidade,rua,numero,bairro,email,telefone1,telefone2) VALUES(:id,:nome,:senha,:sexo,:cpf,:data_nascimento,:estado,:estado_civil,:cidade,:rua,:numero,:bairro,:email,:telefone1,:telefone2)");
                         $stmt2->bindValue(':id',null);
                         $stmt2->bindValue(':nome',$nome);
                         $stmt2->bindValue(':senha',$senha);
                         $stmt2->bindValue(':sexo',$sexo);
-                        $stmt2->bindValue(':cpf',$cpf);
                         $stmt2->bindValue(':data_nascimento',$data_nascimento);
                         $stmt2->bindValue(':estado',$estado);
                         $stmt2->bindValue(':estado_civil',$estado_civil);
