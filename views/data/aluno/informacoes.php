@@ -13,7 +13,7 @@ try {
   $stmt->bindValue(':nome', $nome);
   $stmt->execute();
   $dados = $stmt->fetchAll();
-  //var_dump($dados[0]['telefone1']);
+
 } catch (PDOException $th) {
   echo $th;
 }
@@ -80,7 +80,7 @@ form{
                     </div>
                     <div class="form-group">
                       <label for="exampleInputEmail1">Nome completo:</label>
-                      <input type="text" name="nome" id="nomeUsuario" class="form-control" value='<?php echo $dados[0][1]; ?>' id="exampleInputEmail1" placeholder="nome completo" aria-describedby="emailHelp">
+                      <input type="text" name="nome" id="nomeUsuario" class="form-control" value='<?php echo $dados[0]['nome']; ?>' id="exampleInputEmail1" placeholder="nome completo" aria-describedby="emailHelp">
 
                     </div>
 
@@ -102,16 +102,16 @@ form{
                           <option value="viuvo(a)">viuvo(a)</option>
                         </select>
                       </div>
+                      <div class="col">
+                        <label for="exampleInputPassword1">Nacionalidade:</label>
+                        <input type="text" name="nacionalidade" class="form-control" placeholder="nacionalidade">
+                      </div>
                     </div>
 
                     <div class="row">
                       <div class="col">
                         <label for="">Data nascimento</label>
                         <input type="date" value='<?php echo $dados[0][5]; ?>' name="data" class="form-control" id="data_nascimento">
-                      </div>
-                      <div class="col">
-                        <label for="">CPF:</label>
-                        <input type="text" class="form-control" value='<?php echo $dados[0]['cpf']; ?>' placeholder="cpf" name="cpf" id="cpf">
                       </div>
                     </div>
                     <div class="row">
@@ -143,7 +143,7 @@ form{
                     <div class="row">
                       <div class="col-6">
                         <label for="exampleInputEmail1">CEP</label>
-                        <input type="text" class="form-control" name="cep" id="cep" placeholder="CEP" aria-describedby="emailHelp">
+                        <input type="text" class="form-control" name="cep" id="cep"value="<?php echo $dados[0]['cep'] ?>" placeholder="CEP" aria-describedby="emailHelp">
 
                       </div>
 
@@ -298,6 +298,7 @@ form{
                     </div>
                     <button type="button" class="btn btn-info btn-block add-exp">adicionar outra</button>
                     <button type="submit" class="btn btn-primary btn-block" id="atualizar_curriculo">atualizar</button>
+                    <a href="../../../gerarpdf.php"><button type="button" class="btn btn-success btn-block">Gerar PDF</button></a>
                     <a href="../../start/aluno/aluno.php"><button type="button" class="btn btn-danger btn-block">Voltar</button></a>
                   </form>
                 </div>

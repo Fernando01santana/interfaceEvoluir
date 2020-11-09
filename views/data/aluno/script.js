@@ -4,12 +4,11 @@ $('#updade-info').click(()=>{
   var sexo = $('#sexo').val();
   var estado_civil = $('#estado_civil').val();
   var data_nascimento = $('#data_nascimento').val();
-  var cpf = $('#cpf').val();
   var telefone1 = $('#telefone1').val();
   var telefone2 = $('#telefone2').val();
- 
+ var nacionalidade = $('#nacionalidade').val();
 
-  if((nome === "") || (sexo === undefined) || (estado_civil === undefined) || (data_nascimento === undefined) || (cpf === undefined) || (telefone1 === undefined) || (telefone2 === undefined)){
+  if((nome === "") || (sexo === undefined) || (estado_civil === undefined) || (data_nascimento === undefined) ||  (telefone1 === undefined) || (telefone2 === undefined)){
     $('.alerta').append('<div class="alert alert-danger state" role="alert">preencha todos os campos corretamente!!</div>');
     setTimeout(function(){
       $('.state').fadeOut("slow");
@@ -25,9 +24,9 @@ $('#updade-info').click(()=>{
           sexo:sexo,
           estado_civil:estado_civil,
           data_nascimento:data_nascimento,
-          cpf:cpf,
           telefone1:telefone1,
-          telefone2:telefone2
+          telefone2:telefone2,
+          nacionalidade:nacionalidade
         },
         dataType: 'html',
             success: function(response) {

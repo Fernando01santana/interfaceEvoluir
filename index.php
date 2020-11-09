@@ -6,7 +6,11 @@ if((isset($_SESSION['user']) == true) and (isset($_SESSION['pass']) == true))
   unset($_SESSION['pass']);
 }
 ?>
-
+<style>
+.butons{
+    align-items:center;
+}
+</style>
 <div class="container-fluid bd-dark">
 
     <div class="row">
@@ -32,7 +36,7 @@ if((isset($_SESSION['user']) == true) and (isset($_SESSION['pass']) == true))
                    <img src="views/cad/img/2.svg" class="img-direito" alt="">
                </div>
                
-               <div class="butons">
+               <div class="butons" align=center>
                     <button class=""><a href="views/cad/aluno.php"><img src="views/cad/img/aluno2.png" alt=""><b><h5>Aluno</h5></b></button></a>
                     <button class=""><a href="views/cad/empresa.php"><img src="views/cad/img/empresa.png" alt=""><b><h5>Empresa</h5></b></a> </button>
                </div>

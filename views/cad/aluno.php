@@ -91,7 +91,10 @@
                                     <option value="O">outro</option>
                                 </select>
                                 </div>
-                               
+                                <div class="col">
+                        <label for="exampleInputPassword1">Nacionalidade:</label>
+                        <input type="text" name="nacionalidade" id="nacionalidade" class="form-control" placeholder="nacionalidade">
+                      </div>
                             </div>
                             
                             <div class="form-group">

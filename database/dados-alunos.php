@@ -21,6 +21,7 @@ $telefone1 = $_POST['tel1'];
 $telefone2 = $_POST['tel2'];
 $senha = $_POST['senha'];
 $conf_senha = $_POST['conf-senha'];
+$nacionalidade = $_POST['nacionalidade'];
 //$cpfmd5 = md5($cpf);
 $state = 0;
 try {
@@ -33,7 +34,7 @@ try {
                     header('Location: ../views/cad/aluno.php');
                 } else {
                     try {
-                        $stmt2 = $pdo->prepare("INSERT INTO alunos(id,nome,senha,sexo,data_nascimento,estado,estado_civil,cidade,rua,numero,bairro,email,telefone1,telefone2) VALUES(:id,:nome,:senha,:sexo,:cpf,:data_nascimento,:estado,:estado_civil,:cidade,:rua,:numero,:bairro,:email,:telefone1,:telefone2)");
+                        $stmt2 = $pdo->prepare("INSERT INTO alunos(id,nome,senha,sexo,data_nascimento,estado,estado_civil,cidade,rua,numero,bairro,email,telefone1,telefone2,nacionalidade) VALUES(:id,:nome,:senha,:sexo,:data_nascimento,:estado,:estado_civil,:cidade,:rua,:numero,:bairro,:email,:telefone1,:telefone2,:nacionalidade)");
                         $stmt2->bindValue(':id',null);
                         $stmt2->bindValue(':nome',$nome);
                         $stmt2->bindValue(':senha',$senha);
@@ -48,6 +49,7 @@ try {
                         $stmt2->bindValue(':email',$email);
                         $stmt2->bindValue(':telefone1',$telefone1);
                         $stmt2->bindValue(':telefone2',$telefone2);
+                        $stmt2->bindValue(':nacionalidade',$nacionalidade);
                         $stmt2->execute();
                         $_SESSION['result'] =  "<div class='alert alert-success' role='alert'>Usuario cadastrado com sucesso!</div>";
                         header('Location: ../views/login/index.php');

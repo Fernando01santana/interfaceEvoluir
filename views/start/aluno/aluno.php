@@ -16,7 +16,7 @@ if((!isset ($_SESSION['user']) == true) and (!isset ($_SESSION['pass']) == true)
   $id = $data[0]['id'];
 
   $query_verify_curriculo = $pdo->prepare('SELECT id_aluno FROM curriculos WHERE id_aluno = :aluno');
-  $query_verify_curriculo->bindValue('aluno',$usuario);
+  $query_verify_curriculo->bindValue('aluno', $id);
   $query_verify_curriculo->execute();
   $data_verify_curriculo = $query_verify_curriculo->fetchAll();
   $data_id_aluno = $data_verify_curriculo[0]['id_aluno'];
