@@ -72,10 +72,14 @@ form{
               <div class="tab-pane fade show active" id="dados" role="tabpanel" aria-labelledby="home-tab">
                 <div class="form-date">
 
-                  <form method="POST">
+                  <form  method="POST" action="../../../database/updates_aluno/informacoes.php">
                     <div class="row">
                       <div class="col-12 alerta">
-
+                        <?php 
+                          if (isset($_SESSION['state'])) {
+                            echo $_SESSION['state'];
+                          }
+                        ?>
                       </div>
                     </div>
                     <div class="form-group">
@@ -97,14 +101,14 @@ form{
                         <label for="exampleInputPassword1">Estado civil:</label>
                         <select name="estado-civil" class="form-control" id="estado_civil">
                           <option value="0">selecione uma opção</option>
-                          <option value="feminino">Solteiro</option>
-                          <option value="masculino">Casado</option>
-                          <option value="viuvo(a)">viuvo(a)</option>
+                          <option value="Solteiro">Solteiro</option>
+                          <option value="Casado">Casado</option>
+                          <option value="Viuvo(a)">viuvo(a)</option>
                         </select>
                       </div>
                       <div class="col">
                         <label for="exampleInputPassword1">Nacionalidade:</label>
-                        <input type="text" name="nacionalidade" class="form-control" placeholder="nacionalidade">
+                        <input type="text" name="nacionalidade" id="nacionalidade" class="form-control" placeholder="nacionalidade">
                       </div>
                     </div>
 
@@ -125,7 +129,7 @@ form{
                       </div>
                     </div>
 
-                    <button type="button" id="updade-info" class="btn btn-primary btn-block">atualizar</button>
+                   <input type="submit" value="atualizar dados" class="btn btn-primary btn-block">
                     <a href="../../start/aluno/aluno.php"><button type="button" class="btn btn-danger btn-block">Voltar</button></a>
                   </form>
 
@@ -139,7 +143,7 @@ form{
 
                     </div>
                   </div>
-                  <form>
+                  <form method="POST" action="../../../database/updates_aluno/endereco.php">
                     <div class="row">
                       <div class="col-6">
                         <label for="exampleInputEmail1">CEP</label>
@@ -172,7 +176,7 @@ form{
                       </div>
                     </div>
 
-                    <button type="button" class="btn btn-primary btn-block" id="update-endereco">atualizar</button>
+                    <button type="submit" class="btn btn-primary btn-block" id="update-endereco">atualizar</button>
                     <a href="../../start/aluno/aluno.php"><button type="button" class="btn btn-danger btn-block">Voltar</button></a>
                   </form>
 
@@ -196,9 +200,9 @@ form{
                         <label>Nivel de ensino</label>
                         <select name="nivel_escola" id="nivel_escola" name="nivel_escola" class="form-control">
                           <option value="0">Selecione</option>
-                          <option value="medio">Médio</option>
-                          <option value="fundamental">Fundamental</option>
-                          <option value="superior">Superior</option>
+                          <option value="ensino medio">Médio</option>
+                          <option value="ensino fundamental">Fundamental</option>
+                          <option value="ensino superior">Superior</option>
                         </select>
                       </div>
                       <div class="col-6">
@@ -253,9 +257,9 @@ form{
                         <label for="">Nivel</label>
                         <select name="nivel_idioma" id="nivel_idioma" class="form-control">
                           <option value="0">Selecione</option>
-                          <option value="ingles">Basico</option>
-                          <option value="Espanhol">Intermediario</option>
-                          <option value="Frances">Avançado</option>
+                          <option value="Basico">Basico</option>
+                          <option value="Intermediario">Intermediario</option>
+                          <option value="avançado">Avançado</option>
                         </select>
                       </div>
                     </div>
@@ -271,30 +275,14 @@ form{
 
 
                     <h5 class="titulo-black">Experiencia profissional</h5>
-                    <div class="row">
-                      <div class="col-12">
-                        <label for="">Empresa</label>
-                        <input type="text" class="form-control" name="empresa" id="exp_empresa[]">
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-12">
-                        <label for="">cargo</label>
-                        <input type="text" name="cargos[]" id="exp_cargo" class="form-control">
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-6">
-                        <label for="">data de inicio</label>
-                        <input type="date" name="data_inicio_empresa[]" id="data_inicio_empresa" class="form-control">
-                      </div>
-                      <div class="col-6">
-                        <label for="">data de termino</label>
-                        <input type="date" name="data_termino_empresa[]" id="data_termino_empresa" class="form-control">
-                      </div>
-                    </div>
                     <div class="new-exp">
 
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="objetivo">Objetivo Profissional:</label>
+                            <textarea name="objetivo" id="objetivo" class="form-control" cols="30" rows="6"></textarea>
+                        </div>
                     </div>
                     <button type="button" class="btn btn-info btn-block add-exp">adicionar outra</button>
                     <button type="submit" class="btn btn-primary btn-block" id="atualizar_curriculo">atualizar</button>
@@ -312,7 +300,7 @@ form{
                     </div>
                   </div>
 
-                  <form>
+                  <form method="POST" action="../../../database/updates_aluno/contato.php">
                     <div class="row">
                       <div class="col-6">
                         <label for="exampleInputEmail1">Email:</label>
@@ -322,13 +310,13 @@ form{
 
                       <div class="col-6">
                         <label for="exampleInputEmail1">telefone1</label>
-                        <input type="text" class="form-control" value="<?php echo $dados[0]['telefone1'] ?>" name="estado" id="telefone1_c" placeholder="Telefone1" aria-describedby="emailHelp">
+                        <input type="text" class="form-control" value="<?php echo $dados[0]['telefone1'] ?>" name="telefone1" id="telefone1_c" placeholder="Telefone1" aria-describedby="emailHelp">
 
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">telefone2</label>
-                      <input type="text" class="form-control" name="estado" value="<?php echo $dados[0]['telefone2'] ?>" id="telefone2_c" placeholder="Telefone2" aria-describedby="emailHelp">
+                      <input type="text" class="form-control" name="telefone2" value="<?php echo $dados[0]['telefone2'] ?>" id="telefone2_c" placeholder="Telefone2" aria-describedby="emailHelp">
                     </div>
 
                     <div class="form-group">
@@ -339,17 +327,17 @@ form{
                     <div class="row">
                       <div class="col">
                         <label for="">Senha:</label>
-                        <input type="password" id="senha" class="form-control">
+                        <input type="password" id="senha" class="form-control" name="senha1">
                       </div>
                       <div class="col">
                         <label for="">Confirmar senha:</label>
-                        <input type="password" id="senha-conf" class="form-control">
+                        <input type="password" id="senha-conf" class="form-control" name="senha2">
                       </div>
                     </div>
 
 
 
-                    <button type="button" class="btn btn-primary btn-block" id="update-contato">atualizar</button>
+                    <button type="submit" class="btn btn-primary btn-block" id="update-contato">atualizar</button>
                     <a href="../../start/aluno/aluno.php"><button type="button" class="btn btn-danger btn-block">Voltar</button></a>
                   </form>
                 </div>

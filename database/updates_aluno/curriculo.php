@@ -12,6 +12,7 @@ $stmt->execute();
 $data_id = $stmt->fetchAll();
 $id_user = $data_id[0]['id'];
 
+
 //pegando valores das variaveis contidas no formulario
 
 //dados sobre formação
@@ -49,7 +50,7 @@ if(isset($_POST['qtdeCurso'])){
 //dados da experiencia
 if(isset($_POST['empresa'])){
     $empresas = $_POST['empresa'];
-    $cargo_empresa = $_POST['cargos'];
+    $cargo_empresa = $_POST['cargo_empresa'];
     $data_inicio_empresa = $_POST['data_inicio_empresa'];
     $data_termino_empresa = $_POST['data_termino_empresa'];
 
@@ -66,12 +67,13 @@ if(isset($_POST['empresa'])){
 }
 
 //atualizando dados da tabela curriculo
+$objetivo = $_POST['objetivo'];
 try {
-    $stmt = $pdo->prepare("UPDATE curriculos SET `id_aluno`=:id_aluno,`nivel`=:nivel,`entidade`=:entidade,`estado`=:estado,`ano_conclusao`=:ano_conclusao,`periodo`=:periodo,`idioma`=:idioma,`nivel_idioma`=:nivel_idioma,`curso`=:curso,`entidade_curso`=:entidade_curso,`data_inicio_curso`=:data_inicio_curso,`data_termino_curso`=:data_termino_curso,`empresa`=:empresa,`cargo`=:cargo,`data_inicio_empresa`=:data_inicio_empresa,`data_termino_empresa`=:data_termino_empresa WHERE id_aluno =".$id_user);
-    $stmt->bindValue(':id_aluno',$usuario);
+    $stmt = $pdo->prepare("UPDATE curriculos SET `id_aluno`=:id_aluno,`nivel`=:nivel,`entidade`=:entidade,`estado`=:esino,`ano_conclusao`=:ano_conclusao,`periodo`=:periodo,`idioma`=:idioma,`nivel_idioma`=:nivel_idioma,`curso`=:curso,`entidade_curso`=:entidade_curso,`data_inicio_curso`=:data_inicio_curso,`data_termino_curso`=:data_termino_curso,`empresa`=:empresa,`cargo`=:cargo,`data_inicio_empresa`=:data_inicio_empresa,`data_termino_empresa`=:data_termino_empresa,`objetivo`=:objetivo WHERE id_aluno = :id_usuario");
+    $stmt->bindValue(':id_aluno',$id_user);
     $stmt->bindValue(':nivel',$nivel_escola);
     $stmt->bindValue(':entidade',$instituicao);
-    $stmt->bindValue(':estado',$ensino);
+    $stmt->bindValue(':esino',$ensino);
     $stmt->bindValue(':ano_conclusao',$ano_conclusao);
     $stmt->bindValue(':periodo',$periodo);
     $stmt->bindValue(':idioma',$idioma);
@@ -84,11 +86,13 @@ try {
     $stmt->bindValue(':cargo',$cargo_empresas_json);
     $stmt->bindValue(':data_inicio_empresa',$data_inicio_empresa_json);
     $stmt->bindValue(':data_termino_empresa',$data_termino_empresa_json);
+    $stmt->bindValue(':objetivo',$objetivo);
+    $stmt->bindValue(':id_usuario',$id_user);
     $stmt->execute();
-    $_SESSION['msg-curriculo'] = '<div class="alert alert-success" role="alert">Informações atualizadas!</div>';
+    $_SESSION['state'] = '<div class="alert alert-success" role="alert">Dados atualizados com sucesso!</div>';
     header('Location: ../../views/data/aluno/informacoes.php');
 } catch (\Throwable $th) {
-    $_SESSION['msg-curriculo'] = '<div class="alert alert-danger" role="alert">Erro ao atualizar informações</div>';
+    $_SESSION['state'] = '<div class="alert alert-danger" role="alert">Erro ao atualizar dados!</div>';
     header('Location: ../../views/data/aluno/informacoes.php');
 }
 ?>

@@ -98,6 +98,12 @@
                     </select>
                   </div>
                 </div>
+                <div class="row">
+                  <div class="col-12">
+                    <label for="objetivo">Objetivo profissional:</label>
+                    <textarea name="objetivo" class="form-control" id="objetivo" cols="30" rows="7"></textarea>
+                  </div>
+                </div>
                 <h5 class="titulo-black">Idioma</h5>
                 <div class="row">
 

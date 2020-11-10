@@ -26,6 +26,7 @@ if(isset($_POST['nivel_escola'])){
     $periodo = $_POST['periodo'];
     $idioma = $_POST['idioma'];
     $nivel_idioma = $_POST['nivel_idioma'];
+    $objetivo = $_POST['objetivo'];
 }else{
     $nivel_escola = '';
     $instituicao = '';
@@ -74,8 +75,9 @@ if(isset($_POST['empresa'])){
 }
 
 //mandando os dados para o banco de dados
+$objetivo = $_POST['objetivo'];
 try {
-    $stmt = $pdo->prepare("INSERT INTO `curriculos`(`id_aluno`, `nivel`, `entidade`, `estado`, `ano_conclusao`, `periodo`, `idioma`, `nivel_idioma`, `curso`, `entidade_curso`, `data_inicio_curso`, `data_termino_curso`, `empresa`, `cargo`, `data_inicio_empresa`, `data_termino_empresa`) VALUES (:id_aluno, :nivel, :entidade, :estado, :ano_conclusao, :periodo, :idioma, :nivel_idioma, :curso, :entidade_curso, :data_inicio_curso, :data_termino_curso, :empresa, :cargo, :data_inicio_empresa, :data_termino_empresa)");
+    $stmt = $pdo->prepare("INSERT INTO `curriculos`(`id_aluno`, `nivel`, `entidade`, `estado`, `ano_conclusao`, `periodo`, `idioma`, `nivel_idioma`, `curso`, `entidade_curso`, `data_inicio_curso`, `data_termino_curso`, `empresa`, `cargo`, `data_inicio_empresa`, `data_termino_empresa`,`objetivo`) VALUES (:id_aluno, :nivel, :entidade, :estado, :ano_conclusao, :periodo, :idioma, :nivel_idioma, :curso, :entidade_curso, :data_inicio_curso, :data_termino_curso, :empresa, :cargo, :data_inicio_empresa, :data_termino_empresa,:objetivo)");
 
 
         $stmt->bindValue(':id_aluno',$id);  //ok
@@ -94,6 +96,7 @@ try {
         $stmt->bindValue(':cargo',$txt_cargos);
         $stmt->bindValue(':data_inicio_empresa',$txt_data_inicio);
         $stmt->bindValue(':data_termino_empresa',$txt_data_termino);
+        $stmt->bindValue(':objetivo',$objetivo);
         $stmt->execute();
         echo "<div class='alert alert-success' role='alert'>Cadastro de currículo efetuado com successo!</div>";
         $_SESSION['curriculo'] = '<div class="alert alert-success" role="alert">

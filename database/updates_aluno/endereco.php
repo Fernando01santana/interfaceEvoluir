@@ -1,27 +1,41 @@
 <?php
 include('../conection.php');
-
+session_start();
+$usuario = $_SESSION['user'];
 $cep = $_POST['cep'];
 $cidade = $_POST['cidade'];
 $estado = $_POST['estado'];
 $rua = $_POST['rua'];
 $bairro = $_POST['bairro'];
 $numero = $_POST['numero'];
-$cpf = $_POST['cpf'];
+
+echo $cep,$cidade,$estado,$rua,$bairro,$numero;
+
 
 try {
-    $stmt = $pdo->prepare("UPDATE alunos SET id = :id, cep = :cep, cidade = :cidade, estado = :estado,rua = :rua, bairro = :bairro, numero = :numero WHERE cpf = :cpf");
-    $stmt->bindValue(':id',null);
+    $query = $pdo->prepare("SELECT id FROM alunos WHERE email = :email");
+    $query->bindValue(':email',$usuario);
+    $query->execute();
+    $dados_aluno = $query->fetchAll();
+    $id_aluno = $dados_aluno[0]['id'];
+
+    echo $id_aluno;
+
+    $stmt = $pdo->prepare("UPDATE alunos SET  cep = :cep, cidade = :cidade, estado = :estado,rua = :rua, bairro = :bairro, numero = :numero WHERE id = :id_user");
     $stmt->bindValue(':cep',$cep);
     $stmt->bindValue(':cidade',$cidade);
     $stmt->bindValue(':estado',$estado);
     $stmt->bindValue(':rua',$rua);
     $stmt->bindValue(':bairro',$bairro);
     $stmt->bindValue(':numero',$numero);
-    $stmt->bindValue(':cpf',$cpf);
+    $stmt->bindValue(':id_user',$id_aluno);
     $stmt->execute();
-} catch (\Throwable $th) {
+    $_SESSION['state'] = '<div class="alert alert-success" role="alert">Dados atualizados com sucesso!</div>';
+    header('Location: ../../views/data/aluno/informacoes.php');
+} catch (Exception $th) {
     echo $th->getMessage();
+    $_SESSION['state'] = '<div class="alert alert-danger" role="alert">Erro ao atualizar dados!</div>';
+    header('Location: ../../views/data/aluno/informacoes.php');
 }
 ?>
 

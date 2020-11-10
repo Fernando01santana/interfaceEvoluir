@@ -34,7 +34,7 @@ try {
                     header('Location: ../views/cad/aluno.php');
                 } else {
                     try {
-                        $stmt2 = $pdo->prepare("INSERT INTO alunos(id,nome,senha,sexo,data_nascimento,estado,estado_civil,cidade,rua,numero,bairro,email,telefone1,telefone2,nacionalidade) VALUES(:id,:nome,:senha,:sexo,:data_nascimento,:estado,:estado_civil,:cidade,:rua,:numero,:bairro,:email,:telefone1,:telefone2,:nacionalidade)");
+                        $stmt2 = $pdo->prepare("INSERT INTO alunos(id,nome,senha,sexo,data_nascimento,estado,estado_civil,cidade,rua,numero,bairro,email,telefone1,telefone2,cep,nacionalidade) VALUES(:id,:nome,:senha,:sexo,:data_nascimento,:estado,:estado_civil,:cidade,:rua,:numero,:bairro,:email,:telefone1,:telefone2,:cep,:nacionalidade)");
                         $stmt2->bindValue(':id',null);
                         $stmt2->bindValue(':nome',$nome);
                         $stmt2->bindValue(':senha',$senha);
@@ -49,6 +49,7 @@ try {
                         $stmt2->bindValue(':email',$email);
                         $stmt2->bindValue(':telefone1',$telefone1);
                         $stmt2->bindValue(':telefone2',$telefone2);
+                        $stmt2->bindValue(':cep',$cep);
                         $stmt2->bindValue(':nacionalidade',$nacionalidade);
                         $stmt2->execute();
                         $_SESSION['result'] =  "<div class='alert alert-success' role='alert'>Usuario cadastrado com sucesso!</div>";

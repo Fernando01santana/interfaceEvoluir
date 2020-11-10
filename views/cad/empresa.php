@@ -6,7 +6,7 @@
         <div class="col-md-5 area">
             <div class="esquerda">
 
-                <div class="form" method="POST" action="">
+                <div class="form">
                     <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
                         <div class="cima">
                             <img src="img/logo-empresa.png" class="logo" alt=""><h1> Empresa</h1>
@@ -79,7 +79,7 @@
                                     <input type="password" class="form-control" name="conf-senha" placeholder="********" id="">
                                 </div>
                             </div>
-                            <button class="btn btn-primary btn-block">Cadastrar</button>
+                            <button class="btn btn-primary btn-block" type="submit">Cadastrar</button>
                         </form>
                         <a href="../../index.php"><button class="btn btn-dark btn-block voltar">Voltar</button></a>
                     </div>
